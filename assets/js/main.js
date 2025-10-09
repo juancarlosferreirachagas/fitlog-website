@@ -1065,6 +1065,25 @@ function proceedToContact() {
     }, 500);
 }
 
+// Função para scroll suave para seções
+function scrollToSection(sectionId) {
+    console.log('🎯 Tentando rolar para:', sectionId);
+    const targetSection = document.getElementById(sectionId);
+    
+    if (targetSection) {
+        const offsetTop = targetSection.offsetTop - 100; // Ajuste para o menu fixo
+        
+        window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+        });
+        
+        console.log('✅ Scroll executado para:', sectionId);
+    } else {
+        console.error('❌ Seção não encontrada:', sectionId);
+    }
+}
+
 // Initialize service modals
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('serviceModal');
@@ -1096,6 +1115,22 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Inicializar botões de navegação
     initNavigationButtons();
+    
+    // Adicionar event listeners para todos os links de navegação
+    const navLinks = document.querySelectorAll('a[href^="#"]');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const href = this.getAttribute('href');
+            const sectionId = href.substring(1); // Remove o #
+            
+            if (sectionId) {
+                scrollToSection(sectionId);
+            }
+        });
+    });
+    
+    console.log('🚀 JavaScript inicializado com sucesso!');
 });
 
 // Função para inicializar botões de navegação
