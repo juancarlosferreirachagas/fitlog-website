@@ -127,17 +127,16 @@
         </div>
     </div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" role="navigation" aria-label="Navegação principal">
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav" role="navigation" aria-label="Navegação principal">
         <div class="container">
             <a class="navbar-brand" href="#home" aria-label="FitLog - Página Inicial">
                 <div class="logo-container">
                     <img src="assets/images/fitlog-logo.jpg" alt="FitLog Logo" class="logo-image">
                 </div>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar menu de navegação">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            
+            <!-- Menu Desktop -->
+            <div class="navbar-nav-desktop d-none d-lg-flex">
                 <ul class="navbar-nav ms-auto" role="menubar">
                     <li class="nav-item" role="none">
                         <a class="nav-link" href="#home" role="menuitem" aria-current="page" data-i18n="nav.home">Início</a>
@@ -156,6 +155,47 @@
                             🇧🇷 PT
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('pt')">🇧🇷 Português</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('en')">🇺🇸 English</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('es')">🇪🇸 Español</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Menu Mobile -->
+            <div class="navbar-mobile d-lg-none">
+                <ul class="navbar-nav-mobile" role="menubar">
+                    <li class="nav-item-mobile" role="none">
+                        <a class="nav-link-mobile" href="#home" role="menuitem" data-i18n="nav.home">
+                            <i class="fas fa-home"></i>
+                            <span>Início</span>
+                        </a>
+                    </li>
+                    <li class="nav-item-mobile" role="none">
+                        <a class="nav-link-mobile" href="#services" role="menuitem" data-i18n="nav.services">
+                            <i class="fas fa-cogs"></i>
+                            <span>Serviços</span>
+                        </a>
+                    </li>
+                    <li class="nav-item-mobile" role="none">
+                        <a class="nav-link-mobile" href="#about" role="menuitem" data-i18n="nav.about">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Sobre</span>
+                        </a>
+                    </li>
+                    <li class="nav-item-mobile" role="none">
+                        <a class="nav-link-mobile" href="#contact" role="menuitem" data-i18n="nav.contact">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contato</span>
+                        </a>
+                    </li>
+                    <li class="nav-item-mobile dropdown" role="none">
+                        <a class="nav-link-mobile dropdown-toggle" href="#" id="languageDropdownMobile" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav.language">
+                            <i class="fas fa-globe"></i>
+                            <span>🇧🇷 PT</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-mobile" aria-labelledby="languageDropdownMobile">
                             <li><a class="dropdown-item" href="#" onclick="changeLanguage('pt')">🇧🇷 Português</a></li>
                             <li><a class="dropdown-item" href="#" onclick="changeLanguage('en')">🇺🇸 English</a></li>
                             <li><a class="dropdown-item" href="#" onclick="changeLanguage('es')">🇪🇸 Español</a></li>
