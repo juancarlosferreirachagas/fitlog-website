@@ -1,0 +1,39 @@
+{
+  "name": "fitlog-modern-website",
+  "version": "2.0.0",
+  "description": "Site institucional moderno da FitLog com design contemporâneo e funcionalidades avançadas",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server --port=3000 --open=/index.html",
+    "build": "echo 'Build completed - static site ready for deployment'",
+    "deploy": "echo 'Deploy to your preferred hosting service'"
+  },
+  "keywords": [
+    "logística",
+    "TMS",
+    "WMS",
+    "transporte",
+    "armazenagem",
+    "modern-design",
+    "glassmorphism",
+    "dark-mode",
+    "responsive"
+  ],
+  "author": "FitLog Team",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "features": [
+    "🌙 Dark Mode Toggle",
+    "✨ Glassmorphism Design",
+    "🎨 Modern Gradients",
+    "📱 Fully Responsive",
+    "🎯 Micro-interactions",
+    "📊 Scroll Progress",
+    "🌟 Particle Effects",
+    "💫 Smooth Animations",
+    "🎪 Interactive Modals",
+    "📧 Contact Form"
+  ]
+}
