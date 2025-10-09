@@ -276,12 +276,25 @@ body::after {
 
 /* Container Centralization */
 .navbar .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 var(--space-md);
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+/* Fluid Container Optimization */
+.container-fluid {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+}
+
+@media (min-width: 1200px) {
+    .container-fluid {
+        padding-left: var(--space-xl);
+        padding-right: var(--space-xl);
+    }
 }
 
 /* Logo Centralization */
@@ -700,15 +713,30 @@ body::after {
 
 .solutions-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
     margin-top: var(--space-3xl);
     justify-items: center;
     align-items: start;
-    padding: 0 var(--space-md);
-    max-width: 1200px;
+    padding: 0;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
+}
+
+@media (min-width: 768px) {
+    .solutions-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: var(--space-xl);
+    }
+}
+
+@media (min-width: 1200px) {
+    .solutions-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-xl);
+        max-width: 1200px;
+    }
 }
 
 /* Dark Mode Solutions Section Styles Removed */
@@ -1650,6 +1678,39 @@ body::after {
     box-shadow: var(--shadow-medium);
 }
 
+/* Enhanced Fluid Layout */
+.hero-section .container-fluid {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+}
+
+.solutions-section .container-fluid,
+.contact-section .container-fluid,
+.footer .container-fluid {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+}
+
+@media (min-width: 768px) {
+    .hero-section .container-fluid,
+    .solutions-section .container-fluid,
+    .contact-section .container-fluid,
+    .footer .container-fluid {
+        padding-left: var(--space-lg);
+        padding-right: var(--space-lg);
+    }
+}
+
+@media (min-width: 1200px) {
+    .hero-section .container-fluid,
+    .solutions-section .container-fluid,
+    .contact-section .container-fluid,
+    .footer .container-fluid {
+        padding-left: var(--space-xl);
+        padding-right: var(--space-xl);
+    }
+}
+
 /* Responsive Design - Enhanced & Optimized */
 @media (max-width: 1400px) {
     .hero-title {
@@ -1662,10 +1723,6 @@ body::after {
     
     .section-title {
         font-size: 3rem;
-    }
-    
-    .container {
-        padding: 0 var(--space-lg);
     }
 }
 
