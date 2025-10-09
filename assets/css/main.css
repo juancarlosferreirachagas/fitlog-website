@@ -625,7 +625,13 @@ body::after {
     font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'ss01' 1;
     text-rendering: optimizeLegibility;
     color: #FFFFFF;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 
+        0 0 10px #FF6B35,
+        0 0 20px #FF6B35,
+        0 0 30px #FF6B35,
+        0 0 40px #FF6B35,
+        0 2px 4px rgba(0, 0, 0, 0.3);
+    animation: neonPulse 2s ease-in-out infinite alternate;
 }
 
 .title-line-1 {
@@ -686,7 +692,8 @@ body::after {
 }
 
 .hero-cta .btn {
-    background: var(--gradient-secondary);
+    background: linear-gradient(45deg, #FF6B35, #FF4757, #FF6B35);
+    background-size: 200% 200%;
     border: none;
     padding: var(--space-md) var(--space-xl);
     font-size: 1.1rem;
@@ -695,7 +702,10 @@ body::after {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: var(--transition-bounce);
-    box-shadow: 0 8px 25px rgba(227, 30, 36, 0.3);
+    box-shadow: 
+        0 8px 25px rgba(255, 107, 53, 0.4),
+        0 0 20px rgba(255, 107, 53, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
     position: relative;
     overflow: hidden;
     color: var(--white);
@@ -707,6 +717,7 @@ body::after {
     cursor: pointer;
     z-index: 10;
     pointer-events: auto;
+    animation: gradientShift 3s ease infinite;
 }
 
 .hero-cta .btn:focus {
@@ -2565,6 +2576,67 @@ body::after {
 .py-5 { padding: 3rem 0; }
 .py-4 { padding: 2.5rem 0; }
 .py-3 { padding: 2rem 0; }
+
+/* Efeitos Especiais - Neon e Animações */
+@keyframes neonPulse {
+    0% {
+        text-shadow: 
+            0 0 10px #FF6B35,
+            0 0 20px #FF6B35,
+            0 0 30px #FF6B35,
+            0 0 40px #FF6B35,
+            0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+        text-shadow: 
+            0 0 20px #FF6B35,
+            0 0 30px #FF6B35,
+            0 0 40px #FF6B35,
+            0 0 50px #FF6B35,
+            0 0 60px #FF6B35,
+            0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Efeito especial no badge */
+.hero-badge {
+    animation: floatUp 3s ease-in-out infinite;
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.2), rgba(255, 71, 87, 0.2)) !important;
+    border: 2px solid rgba(255, 107, 53, 0.5) !important;
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.3) !important;
+}
+
+/* Efeito neon no menu mobile */
+.navbar-nav-mobile {
+    animation: neonPulse 4s ease-in-out infinite alternate;
+    box-shadow: 
+        0 4px 20px rgba(255, 107, 53, 0.4),
+        0 0 30px rgba(255, 107, 53, 0.6) !important;
+}
 
 /* Print Styles */
 @media print {
