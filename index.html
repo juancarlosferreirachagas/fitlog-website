@@ -916,6 +916,30 @@
     <script src="assets/js/i18n.js"></script>
     <script src="assets/js/main.js"></script>
     
+    <!-- Debug Script -->
+    <script>
+        console.log('🔍 Debug: Scripts carregados');
+        console.log('🔍 Debug: DOM ready state:', document.readyState);
+        
+        // Verificar se o botão existe
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroBtn = document.querySelector('.hero-cta .btn');
+            if (heroBtn) {
+                console.log('✅ Botão principal encontrado:', heroBtn);
+                console.log('✅ Texto do botão:', heroBtn.textContent.trim());
+                
+                // Adicionar event listener direto
+                heroBtn.addEventListener('click', function(e) {
+                    console.log('🎯 Botão clicado!');
+                    e.preventDefault();
+                    scrollToSection('services');
+                });
+            } else {
+                console.error('❌ Botão principal não encontrado!');
+            }
+        });
+    </script>
+    
     <!-- Service modal functions are now handled in main.js -->
 </body>
 </html>

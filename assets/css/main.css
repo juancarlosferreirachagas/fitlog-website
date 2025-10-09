@@ -703,6 +703,9 @@ body::after {
     align-items: center;
     gap: var(--space-sm);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    cursor: pointer;
+    z-index: 10;
+    pointer-events: auto;
 }
 
 .hero-cta .btn:focus {
