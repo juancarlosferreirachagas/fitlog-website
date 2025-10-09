@@ -1623,24 +1623,41 @@ body::after {
         grid-template-columns: 1fr;
         gap: var(--space-lg);
         padding: 0 var(--space-sm);
+        margin-top: var(--space-xl);
     }
     
     .solution-card {
         max-width: 100%;
-        min-height: 340px;
+        min-height: 320px;
         padding: var(--space-lg) var(--space-md);
+        margin: 0 auto;
     }
     
     .solution-description {
         max-width: 100%;
+        font-size: 0.9rem;
+        line-height: 1.5;
     }
     
     .solution-card h4 {
         max-width: 100%;
+        font-size: 1.3rem;
+    }
+    
+    .solution-btn {
+        width: 100%;
+        max-width: 180px;
+        font-size: 0.85rem;
+        padding: var(--space-sm) var(--space-md);
     }
     
     .clients-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: var(--space-md);
+    }
+    
+    .client-logo {
+        padding: var(--space-md);
     }
     
     .service-checkboxes {
@@ -1663,38 +1680,160 @@ body::after {
     .philosophy-text p {
         font-size: 1.1rem;
     }
+    
+    .benefit-card,
+    .cta-card {
+        padding: var(--space-lg) var(--space-md);
+        margin-bottom: var(--space-md);
+    }
+    
+    .benefit-card h4,
+    .cta-card h4 {
+        font-size: 1.2rem;
+    }
+    
+    .benefit-card p,
+    .cta-card p {
+        font-size: 0.95rem;
+    }
+    
+    .contact-card {
+        padding: var(--space-lg) var(--space-md);
+    }
+    
+    .contact-item {
+        margin-bottom: var(--space-lg);
+    }
+    
+    .contact-item h5 {
+        font-size: 1rem;
+    }
+    
+    .contact-item p {
+        font-size: 0.9rem;
+    }
+    
+    .form-control {
+        padding: var(--space-sm);
+        font-size: 0.95rem;
+    }
+    
+    .btn-primary {
+        padding: var(--space-sm) var(--space-md);
+        font-size: 0.95rem;
+    }
 }
 
 @media (max-width: 576px) {
     .hero-title {
-        font-size: 2.4rem;
+        font-size: 2.2rem;
+        line-height: 1.1;
     }
     
     .title-line-1 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
     
     .hero-subtitle {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+        line-height: 1.3;
     }
     
     .section-title {
-        font-size: 2.2rem;
+        font-size: 2rem;
+        line-height: 1.2;
     }
     
     .hero-cta .btn {
-        padding: 0.8rem 2rem;
-        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+        width: 100%;
+        max-width: 280px;
     }
     
-    .solution-card,
+    .solutions-grid {
+        padding: 0 var(--space-xs);
+        gap: var(--space-md);
+    }
+    
+    .solution-card {
+        padding: var(--space-md) var(--space-sm);
+        min-height: 300px;
+    }
+    
+    .solution-card h4 {
+        font-size: 1.2rem;
+        margin-bottom: var(--space-sm);
+    }
+    
+    .solution-description {
+        font-size: 0.85rem;
+        margin-bottom: var(--space-sm);
+    }
+    
+    .solution-btn {
+        font-size: 0.8rem;
+        padding: var(--space-xs) var(--space-sm);
+        max-width: 160px;
+    }
+    
     .benefit-card,
     .cta-card {
-        padding: 2rem 1.5rem;
+        padding: var(--space-md) var(--space-sm);
+        margin-bottom: var(--space-sm);
+    }
+    
+    .benefit-card h4,
+    .cta-card h4 {
+        font-size: 1.1rem;
+    }
+    
+    .benefit-card p,
+    .cta-card p {
+        font-size: 0.9rem;
     }
     
     .contact-card {
-        padding: 2rem 1.5rem;
+        padding: var(--space-md) var(--space-sm);
+    }
+    
+    .contact-item {
+        margin-bottom: var(--space-md);
+    }
+    
+    .contact-item h5 {
+        font-size: 0.95rem;
+    }
+    
+    .contact-item p {
+        font-size: 0.85rem;
+    }
+    
+    .form-control {
+        padding: var(--space-xs);
+        font-size: 0.9rem;
+    }
+    
+    .btn-primary {
+        padding: var(--space-xs) var(--space-sm);
+        font-size: 0.9rem;
+    }
+    
+    .clients-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: var(--space-sm);
+    }
+    
+    .client-logo {
+        padding: var(--space-sm);
+    }
+    
+    .logo-placeholder i {
+        font-size: 2rem;
+    }
+    
+    .logo-placeholder span {
+        font-size: 0.8rem;
     }
     
     .back-to-top {
@@ -1703,6 +1842,19 @@ body::after {
         width: 45px;
         height: 45px;
         font-size: 1rem;
+    }
+    
+    .navbar {
+        padding: var(--space-sm) 0;
+    }
+    
+    .logo-image {
+        height: 35px;
+    }
+    
+    .navbar-nav .nav-link {
+        font-size: 0.95rem;
+        padding: var(--space-xs) var(--space-sm) !important;
     }
 }
 
