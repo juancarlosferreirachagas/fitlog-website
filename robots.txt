@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://your-site.netlify.app/sitemap.xml
+Sitemap: https://fitlog.com.br/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
