@@ -1,0 +1,36 @@
+/*
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https:; frame-src https://www.google.com;
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+  ETag: strong
+
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+  ETag: strong
+
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+  ETag: strong
+
+/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+  ETag: strong
+
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
+  ETag: strong
+
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+  ETag: strong
+
+/*.html
+  Cache-Control: public, max-age=3600
+  ETag: strong

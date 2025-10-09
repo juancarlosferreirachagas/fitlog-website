@@ -1,0 +1,7 @@
+# Redirects para SPA
+/*    /index.html   200
+
+# Redirects de segurança
+http://fitlog.com.br/*    https://fitlog.com.br/:splat    301!
+http://www.fitlog.com.br/*    https://fitlog.com.br/:splat    301!
+https://www.fitlog.com.br/*    https://fitlog.com.br/:splat    301!
