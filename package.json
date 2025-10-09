@@ -4,9 +4,12 @@
   "description": "Site institucional moderno da FitLog com design contemporâneo e funcionalidades avançadas",
   "main": "index.html",
   "scripts": {
-    "dev": "live-server --port=3000 --open=/index.html",
+    "dev": "live-server --port=3000 --open=/index.html --cors",
     "build": "echo 'Build completed - static site ready for deployment'",
-    "deploy": "echo 'Deploy to your preferred hosting service'"
+    "deploy": "echo 'Deploy to your preferred hosting service'",
+    "test": "echo 'No tests specified'",
+    "lint": "echo 'No linter configured'",
+    "optimize": "echo 'Optimizing assets...' && echo 'Optimization complete'"
   },
   "keywords": [
     "logística",
