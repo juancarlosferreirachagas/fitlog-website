@@ -289,10 +289,11 @@ body::after {
     margin: 0;
     padding: 0;
     list-style: none;
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--blue-light) 100%);
+    background: linear-gradient(135deg, #FF6B35 0%, #FF4757 100%);
     border-radius: var(--radius-full);
     padding: var(--space-xs);
-    box-shadow: 0 4px 20px rgba(27, 54, 93, 0.2);
+    box-shadow: 0 4px 20px rgba(255, 107, 53, 0.4);
+    border: 3px solid #FFD700;
 }
 
 .nav-item-mobile {
@@ -561,7 +562,7 @@ body::after {
 /* Ajuste de padding para mobile com menu */
 @media (max-width: 991.98px) {
     .hero-section {
-        padding-top: 120px;
+        padding-top: 160px;
     }
 }
 
