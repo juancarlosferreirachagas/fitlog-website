@@ -1533,11 +1533,27 @@ body::after {
     background: linear-gradient(135deg, #33CCFF 0%, #00A8CC 100%);
     color: white;
     box-shadow: 0 6px 20px rgba(51, 204, 255, 0.3);
+    position: relative;
 }
 
 .btn-waze:hover {
     color: white;
     box-shadow: 0 8px 25px rgba(51, 204, 255, 0.4);
+    transform: translateY(-3px) scale(1.02);
+}
+
+.btn-waze:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* Fallback para ícone do Waze */
+.btn-waze i.fab.fa-waze:before {
+    content: "\f83f";
+}
+
+/* Se o ícone não carregar, usar emoji */
+.btn-waze i.fab.fa-waze:not([class*="fa-waze"]):before {
+    content: "🚗";
 }
 
 .btn-maps {

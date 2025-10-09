@@ -1074,4 +1074,48 @@ document.addEventListener('DOMContentLoaded', function() {
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', updateSelectionCounter);
     });
+    
+    // Inicializar botões de navegação
+    initNavigationButtons();
 });
+
+// Função para inicializar botões de navegação
+function initNavigationButtons() {
+    const wazeButton = document.querySelector('.btn-waze');
+    const mapsButton = document.querySelector('.btn-maps');
+    
+    if (wazeButton) {
+        wazeButton.addEventListener('click', function(e) {
+            console.log('🚗 Botão Waze clicado!');
+            
+            // Verificar se é mobile
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            if (isMobile) {
+                // Para mobile, usar o link direto do Waze
+                const wazeUrl = 'https://waze.com/ul?ll=-23.4536,-46.5331&navigate=yes';
+                console.log('📱 Abrindo Waze no mobile:', wazeUrl);
+                window.open(wazeUrl, '_blank');
+            } else {
+                // Para desktop, tentar abrir o app ou mostrar instruções
+                const wazeUrl = 'https://waze.com/ul?ll=-23.4536,-46.5331&navigate=yes';
+                console.log('💻 Abrindo Waze no desktop:', wazeUrl);
+                window.open(wazeUrl, '_blank');
+            }
+        });
+        
+        console.log('✅ Botão Waze inicializado');
+    } else {
+        console.warn('⚠️ Botão Waze não encontrado');
+    }
+    
+    if (mapsButton) {
+        mapsButton.addEventListener('click', function(e) {
+            console.log('🗺️ Botão Google Maps clicado!');
+        });
+        
+        console.log('✅ Botão Google Maps inicializado');
+    } else {
+        console.warn('⚠️ Botão Google Maps não encontrado');
+    }
+}

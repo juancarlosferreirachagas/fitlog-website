@@ -64,6 +64,23 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer">
     
+    <!-- Fallback para Font Awesome -->
+    <script>
+        // Verificar se Font Awesome carregou
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                const wazeIcon = document.querySelector('.btn-waze i.fab.fa-waze');
+                if (wazeIcon && !wazeIcon.style.fontFamily.includes('Font Awesome')) {
+                    console.log('⚠️ Font Awesome não carregou, usando fallback');
+                    wazeIcon.style.display = 'none';
+                    wazeIcon.insertAdjacentHTML('afterend', '<span style="font-size: 1.2rem;">🚗</span>');
+                } else {
+                    console.log('✅ Font Awesome carregado corretamente');
+                }
+            }, 2000);
+        });
+    </script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=Outfit:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -787,8 +804,9 @@
                                     <a href="https://waze.com/ul?ll=-23.4536,-46.5331&navigate=yes" 
                                        target="_blank" 
                                        class="btn btn-navigation btn-waze"
-                                       aria-label="Abrir no Waze">
-                                        <i class="fab fa-waze"></i>
+                                       aria-label="Abrir no Waze"
+                                       rel="noopener noreferrer">
+                                        <i class="fab fa-waze" aria-hidden="true"></i>
                                         <span>Navegar com Waze</span>
                                     </a>
                                 </div>
