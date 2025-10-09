@@ -10,7 +10,7 @@ Site institucional ultra-moderno e responsivo para a FitLog, empresa especializa
 - ♿ **Acessibilidade Total** - ARIA, contraste, navegação por teclado
 - 📝 **Tipografia Premium** - Inter font com hierarquia otimizada e legibilidade perfeita
 - 🎨 **Design Limpo** - Cabeçalho minimalista apenas com logo
-- 🌙 **Dark Mode Toggle** - Alternância entre tema claro e escuro
+- 🌞 **Light Mode Only** - Design otimizado para modo claro
 - 🎨 **Glassmorphism Design** - Efeitos de vidro e transparência
 - 📊 **Scroll Progress Indicator** - Barra de progresso de rolagem
 - ✨ **Particle Effects** - Efeitos de partículas animadas
@@ -138,10 +138,10 @@ Site institucional ultra-moderno e responsivo para a FitLog, empresa especializa
 
 ## 🚀 Funcionalidades Avançadas
 
-### 🌙 Dark Mode
-- Toggle flutuante no lado direito
-- Persistência da preferência no localStorage
-- Transições suaves entre temas
+### 🌞 Light Mode
+- Design otimizado para modo claro
+- Cores contrastantes para máxima legibilidade
+- Paleta FitLog (azul, vermelho, branco)
 
 ### ✨ Efeitos Visuais
 - Partículas animadas no hero
