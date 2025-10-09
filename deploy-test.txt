@@ -1,3 +1,0 @@
-Deploy Test - $(date)
-Este arquivo é para testar se o deploy automático está funcionando.
-Se você está vendo este arquivo, o deploy automático está funcionando!
