@@ -10,7 +10,7 @@
 :root {
     /* FitLog Brand Color Palette - WCAG AA Compliant */
     --primary-blue: #1B365D;
-    --primary-red: #E31E24;
+    --primary-yellow: #FCD34D;
     --white: #FFFFFF;
     --blue-light: #4A90E2;
     --blue-dark: #0F2A4A;
@@ -43,12 +43,12 @@
     --glass-border-dark: rgba(27, 54, 93, 0.2);
     
     /* Brand Gradients */
-    --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, var(--blue-light) 100%);
-    --gradient-secondary: linear-gradient(135deg, var(--primary-red) 0%, var(--red-light) 100%);
-    --gradient-accent: linear-gradient(135deg, var(--blue-light) 0%, var(--primary-red) 100%);
-    --gradient-hero: linear-gradient(135deg, var(--primary-blue) 0%, var(--blue-dark) 50%, var(--primary-red) 100%);
+    --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-yellow) 100%);
+    --gradient-secondary: linear-gradient(135deg, var(--primary-yellow) 0%, #F59E0B 100%);
+    --gradient-accent: linear-gradient(135deg, var(--blue-light) 0%, var(--primary-yellow) 100%);
+    --gradient-hero: linear-gradient(135deg, var(--primary-blue) 0%, var(--blue-dark) 50%, var(--primary-yellow) 100%);
     --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%);
-    --gradient-watermark: linear-gradient(45deg, rgba(27, 54, 93, 0.03) 0%, rgba(227, 30, 36, 0.03) 100%);
+    --gradient-watermark: linear-gradient(45deg, rgba(27, 54, 93, 0.03) 0%, rgba(252, 211, 77, 0.03) 100%);
     
     /* Modern Shadows */
     --shadow-soft: 0 2px 20px rgba(0,0,0,0.08);
@@ -1129,7 +1129,7 @@ body::after {
 }
 
 .modal-close:hover {
-    color: var(--primary-red);
+    color: var(--primary-yellow);
 }
 
 .modal-header {
