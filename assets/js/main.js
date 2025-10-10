@@ -1278,6 +1278,17 @@ function initMobileScrollProgress() {
     updateScrollProgress(); // Initial call
 }
 
+// Function to scroll to solutions section
+function scrollToSolutions() {
+    const solutionsSection = document.querySelector('.solutions-grid');
+    if (solutionsSection) {
+        solutionsSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+
 // Initialize mobile gestures when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     initMobileGestures();
