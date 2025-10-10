@@ -144,6 +144,36 @@ body::after {
     }
 }
 
+/* Performance Optimizations */
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+input, textarea, [contenteditable] {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+/* GPU Acceleration for Smooth Animations */
+.btn,
+.solution-card,
+.benefit-card,
+.cta-card,
+.client-logo,
+.navbar-nav .nav-link {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
 /* Dark Mode Removed */
 
 /* Additional Variables */
@@ -255,7 +285,7 @@ body::after {
     background: rgba(255, 255, 255, 0.98) !important;
     backdrop-filter: blur(25px);
     border-bottom: 1px solid rgba(27, 54, 93, 0.08);
-    transition: var(--transition-normal);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     padding: var(--space-md) 0;
     position: fixed;
     top: 0;
@@ -263,6 +293,7 @@ body::after {
     right: 0;
     z-index: 1000;
     box-shadow: 0 4px 32px rgba(27, 54, 93, 0.12);
+    transform: translateY(0);
 }
 
 .navbar.scrolled {
@@ -362,6 +393,73 @@ body::after {
     color: var(--primary-red) !important;
     background: rgba(27, 54, 93, 0.05);
     transform: translateY(-2px);
+}
+
+.navbar-nav .nav-link.active {
+    color: var(--primary-red) !important;
+    background: rgba(227, 30, 36, 0.1);
+    font-weight: 600;
+}
+
+.navbar-nav .nav-link.active::after {
+    width: 80%;
+    background: var(--gradient-secondary);
+}
+
+/* Mobile Menu Toggle */
+.navbar-toggler {
+    display: none;
+    background: none;
+    border: none;
+    padding: var(--space-sm);
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: var(--transition-normal);
+}
+
+.navbar-toggler:hover {
+    background: rgba(27, 54, 93, 0.1);
+}
+
+.navbar-toggler-icon {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--primary-blue);
+    position: relative;
+    transition: var(--transition-normal);
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-blue);
+    transition: var(--transition-normal);
+}
+
+.navbar-toggler-icon::before {
+    top: -8px;
+}
+
+.navbar-toggler-icon::after {
+    top: 8px;
+}
+
+.navbar-toggler.active .navbar-toggler-icon {
+    background: transparent;
+}
+
+.navbar-toggler.active .navbar-toggler-icon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.navbar-toggler.active .navbar-toggler-icon::after {
+    transform: rotate(-45deg);
+    top: 0;
 }
 
 /* Language Dropdown */
@@ -1603,8 +1701,59 @@ body::after {
 }
 
 @media (max-width: 768px) {
+    /* Mobile Navigation */
+    .navbar {
+        padding: var(--space-sm) 0;
+    }
+    
+    .navbar .container {
+        padding: 0 var(--space-sm);
+    }
+    
+    .logo-image {
+        height: 35px;
+    }
+    
+    .navbar-toggler {
+        display: block;
+    }
+    
+    .navbar-nav {
+        gap: 0;
+        flex-direction: column;
+        width: 100%;
+        padding: var(--space-md) 0;
+        display: none;
+    }
+    
+    .navbar-nav.show {
+        display: flex;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: var(--space-sm) var(--space-md) !important;
+        width: 100%;
+        text-align: center;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(27, 54, 93, 0.1);
+    }
+    
+    .navbar-nav .nav-link:last-child {
+        border-bottom: none;
+    }
+    
+    .navbar-collapse {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        border-radius: var(--radius-md);
+        margin-top: var(--space-sm);
+        box-shadow: var(--shadow-medium);
+    }
+    
+    /* Mobile Hero */
     .hero-title {
         font-size: 2.8rem;
+        line-height: 1.1;
     }
     
     .title-line-1 {
@@ -1613,12 +1762,33 @@ body::after {
     
     .hero-subtitle {
         font-size: 1.4rem;
+        margin-bottom: 1.5rem;
     }
     
+    .hero-description {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-cta .btn {
+        padding: var(--space-md) var(--space-xl);
+        font-size: 1rem;
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    /* Mobile Sections */
     .section-title {
         font-size: 2.4rem;
+        margin-bottom: var(--space-md);
     }
     
+    .section-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: var(--space-xl);
+    }
+    
+    /* Mobile Solutions */
     .solutions-grid {
         grid-template-columns: 1fr;
         gap: var(--space-lg);
@@ -1627,22 +1797,45 @@ body::after {
     
     .solution-card {
         max-width: 100%;
-        min-height: 340px;
+        min-height: 320px;
         padding: var(--space-lg) var(--space-md);
     }
     
     .solution-description {
         max-width: 100%;
+        font-size: 0.9rem;
     }
     
     .solution-card h4 {
         max-width: 100%;
+        font-size: 1.3rem;
     }
     
+    .solution-btn {
+        width: 100%;
+        max-width: 180px;
+        padding: var(--space-sm) var(--space-md);
+    }
+    
+    /* Mobile Clients */
     .clients-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: var(--space-md);
     }
     
+    .client-logo {
+        padding: var(--space-md);
+    }
+    
+    .logo-placeholder i {
+        font-size: 2rem;
+    }
+    
+    .logo-placeholder span {
+        font-size: 0.9rem;
+    }
+    
+    /* Mobile Modals */
     .service-checkboxes {
         grid-template-columns: 1fr;
     }
@@ -1650,18 +1843,73 @@ body::after {
     .modal-content {
         width: 95%;
         margin: 1rem;
+        max-height: 90vh;
     }
     
     .modal-body {
         padding: 1.5rem;
     }
     
+    .modal-header {
+        padding: 1.5rem 1.5rem 1rem;
+    }
+    
+    /* Mobile Contact */
+    .contact-card {
+        padding: var(--space-lg);
+    }
+    
+    .contact-item {
+        margin-bottom: var(--space-lg);
+    }
+    
+    .contact-item i {
+        font-size: 1.3rem;
+        margin-right: var(--space-sm);
+    }
+    
+    .form-control {
+        padding: var(--space-md);
+        font-size: 1rem;
+    }
+    
+    .btn-primary {
+        padding: var(--space-md) var(--space-lg);
+        font-size: 1rem;
+    }
+    
+    /* Mobile Philosophy */
     .philosophy-text {
         padding: 2rem 1.5rem;
     }
     
     .philosophy-text p {
         font-size: 1.1rem;
+        line-height: 1.7;
+    }
+    
+    /* Mobile Footer */
+    .footer {
+        padding: var(--space-lg) 0;
+    }
+    
+    .footer-logo {
+        text-align: center;
+        margin-bottom: var(--space-md);
+    }
+    
+    .footer-copyright {
+        text-align: center;
+        margin-top: var(--space-md);
+    }
+    
+    /* Mobile Back to Top */
+    .back-to-top {
+        bottom: 1rem;
+        right: 1rem;
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
     }
 }
 
@@ -1737,6 +1985,42 @@ body::after {
     to {
         opacity: 1;
         transform: translateX(0);
+    }
+}
+
+/* Touch Device Improvements */
+@media (hover: none) and (pointer: coarse) {
+    .btn:hover,
+    .solution-card:hover,
+    .benefit-card:hover,
+    .cta-card:hover,
+    .client-logo:hover {
+        transform: none;
+    }
+    
+    .btn:active,
+    .solution-card:active,
+    .benefit-card:active,
+    .cta-card:active,
+    .client-logo:active {
+        transform: scale(0.98);
+    }
+    
+    .navbar-nav .nav-link:hover {
+        transform: none;
+        background: rgba(27, 54, 93, 0.1);
+    }
+    
+    .navbar-nav .nav-link:active {
+        transform: scale(0.95);
+    }
+}
+
+/* High DPI Display Support */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo-image {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
     }
 }
 
