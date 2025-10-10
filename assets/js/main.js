@@ -1162,6 +1162,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Mobile Gesture Support
 function initMobileGestures() {
+    // Mobile Live Navigation
+    initMobileLiveNavigation();
+    
+    // Mobile Scroll Progress
+    initMobileScrollProgress();
+    
     let startY = 0;
     let startX = 0;
     let isScrolling = false;
@@ -1208,6 +1214,68 @@ function initMobileGestures() {
     
     // Keep navbar always visible (removed auto-hide functionality)
     // Navbar will stay fixed at the top during scroll
+}
+
+function initMobileLiveNavigation() {
+    const mobileNavIndicator = document.getElementById('mobileNavIndicator');
+    const navDots = document.querySelectorAll('.mobile-nav-dot');
+    
+    if (!mobileNavIndicator || navDots.length === 0) return;
+    
+    // Update active dot based on scroll position
+    function updateActiveDot() {
+        const sections = ['home', 'services', 'about', 'contact'];
+        const scrollPosition = window.scrollY + window.innerHeight / 2;
+        
+        sections.forEach((sectionId, index) => {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                const sectionTop = section.offsetTop;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    navDots.forEach(dot => dot.classList.remove('active'));
+                    navDots[index].classList.add('active');
+                }
+            }
+        });
+    }
+    
+    // Click to navigate
+    navDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            const sections = ['home', 'services', 'about', 'contact'];
+            const targetSection = document.getElementById(sections[index]);
+            
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // Update on scroll
+    window.addEventListener('scroll', updateActiveDot);
+    updateActiveDot(); // Initial call
+}
+
+function initMobileScrollProgress() {
+    const progressBar = document.getElementById('scrollProgressMobile');
+    
+    if (!progressBar) return;
+    
+    function updateScrollProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        
+        progressBar.style.transform = `scaleX(${scrollPercent / 100})`;
+    }
+    
+    window.addEventListener('scroll', updateScrollProgress);
+    updateScrollProgress(); // Initial call
 }
 
 // Initialize mobile gestures when DOM is loaded
