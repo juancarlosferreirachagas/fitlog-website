@@ -100,7 +100,7 @@ body {
     padding-top: 80px; /* Compensate for fixed navbar */
 }
 
-/* Watermark Background */
+/* WhatsApp-style Background */
 body::before {
     content: '';
     position: fixed;
@@ -109,10 +109,15 @@ body::before {
     width: 100%;
     height: 100%;
     background: 
-        radial-gradient(circle at 20% 20%, rgba(27, 54, 93, 0.02) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(227, 30, 36, 0.02) 0%, transparent 50%),
-        radial-gradient(circle at 40% 60%, rgba(74, 144, 226, 0.02) 0%, transparent 50%),
-        var(--gradient-watermark);
+        /* WhatsApp green subtle pattern */
+        radial-gradient(circle at 20% 20%, rgba(37, 211, 102, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(37, 211, 102, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, rgba(37, 211, 102, 0.015) 0%, transparent 50%),
+        /* FitLog brand colors */
+        radial-gradient(circle at 60% 30%, rgba(27, 54, 93, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 30% 70%, rgba(227, 30, 36, 0.015) 0%, transparent 50%),
+        /* Base gradient */
+        linear-gradient(135deg, rgba(37, 211, 102, 0.01) 0%, rgba(255, 255, 255, 0.02) 100%);
     z-index: -2;
     pointer-events: none;
 }
@@ -468,6 +473,7 @@ input, textarea, [contenteditable] {
     box-shadow: var(--shadow-medium);
     padding: var(--space-sm);
     min-width: 160px;
+    z-index: 10000; /* Ensure dropdown appears above other elements */
 }
 
 .navbar-nav .dropdown-item {
@@ -483,6 +489,27 @@ input, textarea, [contenteditable] {
     background: var(--gray-100);
     color: var(--primary-blue);
     transform: translateX(4px);
+}
+
+/* Mobile Language Dropdown Fix */
+@media (max-width: 768px) {
+    .navbar-nav .dropdown-menu {
+        position: fixed !important;
+        top: 60px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 200px !important;
+        z-index: 10001 !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    }
+    
+    .navbar-nav .dropdown-item {
+        padding: var(--space-md) var(--space-lg);
+        font-size: 1rem;
+        min-height: 44px; /* Touch target */
+        display: flex;
+        align-items: center;
+    }
 }
 
 /* Dark Mode Navigation Styles Removed */
@@ -1879,26 +1906,75 @@ input, textarea, [contenteditable] {
     box-shadow: var(--shadow-medium);
 }
 
-/* Responsive Design - Optimized */
-@media (max-width: 1200px) {
+/* ========================================
+   MOBILE-FIRST RESPONSIVE DESIGN
+   ======================================== */
+
+/* Base styles are mobile-first (320px+) */
+
+/* Small Mobile (320px - 480px) */
+@media (min-width: 320px) {
     .hero-title {
-        font-size: 4rem;
+        font-size: 2.2rem;
+        line-height: 1.1;
     }
     
     .title-line-1 {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
     }
     
     .section-title {
-        font-size: 2.8rem;
+        font-size: 2rem;
     }
     
     .container {
-        padding: 0 var(--space-lg);
+        padding: 0 var(--space-sm);
+    }
+    
+    /* Touch targets minimum 44px */
+    .btn, .navbar-nav .nav-link, .solution-btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* WhatsApp-style background */
+    body::before {
+        background: 
+            radial-gradient(circle at 20% 20%, rgba(37, 211, 102, 0.03) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(37, 211, 102, 0.02) 0%, transparent 50%),
+            linear-gradient(135deg, rgba(37, 211, 102, 0.01) 0%, rgba(255, 255, 255, 0.02) 100%);
     }
 }
 
-@media (max-width: 992px) {
+/* Mobile (481px - 768px) */
+@media (min-width: 481px) {
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    
+    .title-line-1 {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.4rem;
+    }
+    
+    .section-title {
+        font-size: 2.4rem;
+    }
+    
+    .container {
+        padding: 0 var(--space-md);
+    }
+}
+
+/* Tablet (769px - 1024px) */
+@media (min-width: 769px) {
     .hero-title {
         font-size: 3.2rem;
     }
@@ -1915,24 +1991,62 @@ input, textarea, [contenteditable] {
         font-size: 2.6rem;
     }
     
+    .container {
+        padding: 0 var(--space-lg);
+    }
+    
     .contact-info {
-        padding-right: 0;
-        margin-bottom: var(--space-xl);
+        padding-right: var(--space-xl);
     }
     
     .contact-form {
-        padding-left: 0;
+        padding-left: var(--space-xl);
+    }
+}
+
+/* Desktop (1025px - 1200px) */
+@media (min-width: 1025px) {
+    .hero-title {
+        font-size: 4rem;
     }
     
-    .footer-copyright {
-        text-align: center;
-        margin-top: var(--space-md);
+    .title-line-1 {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2.8rem;
     }
     
     .container {
-        padding: 0 var(--space-md);
+        padding: 0 var(--space-xl);
     }
 }
+
+/* Large Desktop (1201px+) */
+@media (min-width: 1201px) {
+    .hero-title {
+        font-size: 4.5rem;
+    }
+    
+    .title-line-1 {
+        font-size: 2.8rem;
+    }
+    
+    .section-title {
+        font-size: 3.2rem;
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 var(--space-xl);
+    }
+}
+
+/* ========================================
+   MOBILE-SPECIFIC FIXES (768px and below)
+   ======================================== */
 
 @media (max-width: 768px) {
     /* Mobile Navigation - Live Navigation */
@@ -1979,25 +2093,6 @@ input, textarea, [contenteditable] {
     }
     
     /* Mobile Hero */
-    .hero-title {
-        font-size: 2.8rem;
-        line-height: 1.1;
-    }
-    
-    .title-line-1 {
-        font-size: 2rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.4rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .hero-description {
-        font-size: 1.1rem;
-        margin-bottom: 2rem;
-    }
-    
     .hero-cta .btn {
         padding: var(--space-md) var(--space-xl);
         font-size: 1rem;
@@ -2006,11 +2101,6 @@ input, textarea, [contenteditable] {
     }
     
     /* Mobile Sections */
-    .section-title {
-        font-size: 2.4rem;
-        margin-bottom: var(--space-md);
-    }
-    
     .section-subtitle {
         font-size: 1.1rem;
         margin-bottom: var(--space-xl);
@@ -2025,25 +2115,57 @@ input, textarea, [contenteditable] {
     
     .solution-card {
         max-width: 100%;
-        min-height: 340px;
-        padding: var(--space-lg) var(--space-md);
+        min-height: 380px;
+        padding: var(--space-xl) var(--space-lg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        text-align: center;
+        gap: var(--space-md);
     }
     
     .solution-description {
         max-width: 100%;
-        font-size: 0.9rem;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        text-align: center;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     .solution-card h4 {
         max-width: 100%;
-        font-size: 1.3rem;
+        font-size: 1.4rem;
+        text-align: center;
+        margin: var(--space-sm) 0;
+        line-height: 1.3;
+    }
+    
+    .solution-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto var(--space-md);
+    }
+    
+    .solution-icon i {
+        font-size: 1.8rem;
     }
     
     .solution-btn {
         width: 100%;
-        max-width: 200px;
-        padding: var(--space-sm) var(--space-lg);
-        font-size: 0.9rem;
+        max-width: 280px;
+        padding: var(--space-md) var(--space-xl);
+        font-size: 1rem;
+        min-height: 48px; /* Better touch target */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        white-space: nowrap;
+        overflow: visible;
     }
     
     /* Mobile Services Hero */
@@ -2091,8 +2213,26 @@ input, textarea, [contenteditable] {
     }
     
     .solutions-grid {
-        margin-top: var(--space-lg);
+        margin-top: var(--space-xl);
         padding: 0;
+        gap: var(--space-xl);
+    }
+    
+    /* Better section spacing */
+    .solutions-section {
+        padding: var(--space-2xl) 0;
+    }
+    
+    .services-hero-content {
+        margin-bottom: var(--space-xl);
+    }
+    
+    .services-cards-title {
+        margin-bottom: var(--space-md);
+    }
+    
+    .services-cards-subtitle {
+        margin-bottom: var(--space-xl);
     }
     
     /* Mobile Clients */
