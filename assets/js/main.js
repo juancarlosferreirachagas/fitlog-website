@@ -1195,16 +1195,10 @@ function initMobileGestures() {
         const endY = e.changedTouches[0].clientY;
         const diffY = startY - endY;
         
-        // Swipe up to scroll down, swipe down to scroll up
+        // Gesture detection for future use (navbar stays fixed)
         if (Math.abs(diffY) > 50) {
-            const navbar = document.getElementById('mainNav');
-            if (diffY > 0) {
-                // Swipe up - hide navbar
-                navbar.style.transform = 'translateY(-100%)';
-            } else {
-                // Swipe down - show navbar
-                navbar.style.transform = 'translateY(0)';
-            }
+            // Gesture detected but navbar remains fixed
+            console.log('Gesture detected:', diffY > 0 ? 'swipe up' : 'swipe down');
         }
         
         startY = 0;
@@ -1212,22 +1206,8 @@ function initMobileGestures() {
         isScrolling = false;
     }, { passive: true });
     
-    // Show navbar on scroll up
-    let lastScrollY = window.scrollY;
-    window.addEventListener('scroll', function() {
-        const currentScrollY = window.scrollY;
-        const navbar = document.getElementById('mainNav');
-        
-        if (currentScrollY > lastScrollY && currentScrollY > 100) {
-            // Scrolling down
-            navbar.style.transform = 'translateY(-100%)';
-        } else {
-            // Scrolling up
-            navbar.style.transform = 'translateY(0)';
-        }
-        
-        lastScrollY = currentScrollY;
-    }, { passive: true });
+    // Keep navbar always visible (removed auto-hide functionality)
+    // Navbar will stay fixed at the top during scroll
 }
 
 // Initialize mobile gestures when DOM is loaded
