@@ -1,12 +1,33 @@
 {
-  "name": "fitlog-modern-website",
+  "name": "fitlog-website",
   "version": "2.0.0",
-  "description": "Site institucional moderno da FitLog com design contemporâneo e funcionalidades avançadas",
+  "description": "FitLog Website - Logística 100% Digital com TMS e WMS",
   "main": "index.html",
   "scripts": {
-    "dev": "live-server --port=3000 --open=/index.html",
-    "build": "echo 'Build completed - static site ready for deployment'",
-    "deploy": "echo 'Deploy to your preferred hosting service'"
+    "dev": "python3 -m http.server 8000",
+    "start": "python3 -m http.server 8000",
+    "build": "npm run minify && npm run optimize-images",
+    "minify": "npm run minify-css && npm run minify-js && npm run minify-html",
+    "minify-css": "cleancss -o dist/css/main.min.css assets/css/main.css && cleancss -o dist/css/design-system.min.css assets/css/design-system.css",
+    "minify-js": "terser assets/js/main.js -o dist/js/main.min.js -c -m && terser assets/js/image-optimizer.js -o dist/js/image-optimizer.min.js -c -m && terser assets/js/accessibility-manager.js -o dist/js/accessibility-manager.min.js -c -m && terser assets/js/performance-monitor.js -o dist/js/performance-monitor.min.js -c -m",
+    "minify-html": "html-minifier-terser index.html -o dist/index.html --remove-comments --remove-redundant-attributes --remove-script-type-attributes --remove-style-link-type-attributes --use-short-doctype --minify-css --minify-js",
+    "optimize-images": "imagemin assets/images/*.{jpg,png} --out-dir=dist/images --plugin=webp && imagemin assets/images/*.{jpg,png} --out-dir=dist/images --plugin=avif",
+    "test": "playwright test",
+    "test:accessibility": "playwright test tests/accessibility.test.js",
+    "test:performance": "playwright test tests/performance.test.js",
+    "test:functionality": "playwright test tests/functionality.test.js",
+    "test:all": "npm run test:accessibility && npm run test:performance && npm run test:functionality",
+    "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
+    "lint:js": "eslint assets/js/ --ext .js",
+    "lint:css": "stylelint assets/css/",
+    "lint:html": "htmlhint index.html",
+    "lint:fix": "eslint assets/js/ --ext .js --fix && stylelint assets/css/ --fix",
+    "audit": "npm audit --audit-level=moderate",
+    "lighthouse": "lhci autorun",
+    "pa11y": "pa11y-ci --sitemap http://localhost:8000/sitemap.xml",
+    "sitemap": "node scripts/generate-sitemap.js",
+    "deploy:staging": "netlify deploy --dir=dist --site=$NETLIFY_SITE_ID_STAGING",
+    "deploy:production": "netlify deploy --dir=dist --prod --site=$NETLIFY_SITE_ID_PRODUCTION"
   },
   "keywords": [
     "logística",
@@ -14,26 +35,46 @@
     "WMS",
     "transporte",
     "armazenagem",
-    "modern-design",
-    "glassmorphism",
-    "dark-mode",
-    "responsive"
+    "digital",
+    "website",
+    "acessibilidade",
+    "performance",
+    "segurança"
   ],
   "author": "FitLog Team",
   "license": "MIT",
   "devDependencies": {
-    "live-server": "^1.2.2"
+    "@playwright/test": "^1.40.0",
+    "@lhci/cli": "^0.12.0",
+    "axe-core": "^4.7.0",
+    "clean-css-cli": "^5.6.2",
+    "eslint": "^8.55.0",
+    "htmlhint": "^1.1.4",
+    "html-minifier-terser": "^7.2.0",
+    "imagemin": "^8.0.1",
+    "imagemin-avif": "^1.0.1",
+    "imagemin-cli": "^7.0.0",
+    "imagemin-webp": "^8.0.0",
+    "pa11y-ci": "^3.0.1",
+    "stylelint": "^16.0.0",
+    "stylelint-config-standard": "^34.0.0",
+    "terser": "^5.24.0"
   },
-  "features": [
-    "🌙 Dark Mode Toggle",
-    "✨ Glassmorphism Design",
-    "🎨 Modern Gradients",
-    "📱 Fully Responsive",
-    "🎯 Micro-interactions",
-    "📊 Scroll Progress",
-    "🌟 Particle Effects",
-    "💫 Smooth Animations",
-    "🎪 Interactive Modals",
-    "📧 Contact Form"
-  ]
+  "dependencies": {
+    "bootstrap": "^5.3.2",
+    "aos": "^2.3.1",
+    "font-awesome": "^6.5.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fitlog/website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fitlog/website/issues"
+  },
+  "homepage": "https://fitlog.com.br"
 }

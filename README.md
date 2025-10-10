@@ -1,203 +1,299 @@
-# FitLog - Site Institucional Moderno 🚀
+# 🚀 FitLog Website - Logística 100% Digital
 
-Site institucional ultra-moderno e responsivo para a FitLog, empresa especializada em logística digital com design contemporâneo e funcionalidades avançadas.
+[![CI/CD Pipeline](https://github.com/fitlog/website/workflows/CI/CD%20Pipeline/badge.svg)](https://github.com/fitlog/website/actions)
+[![Security](https://github.com/fitlog/website/workflows/Security/badge.svg)](https://github.com/fitlog/website/actions)
+[![Performance](https://github.com/fitlog/website/workflows/Performance/badge.svg)](https://github.com/fitlog/website/actions)
+[![Accessibility](https://github.com/fitlog/website/workflows/Accessibility/badge.svg)](https://github.com/fitlog/website/actions)
 
-## ✨ Características Modernas
+## 📋 Sobre o Projeto
 
-- 🎨 **Paleta FitLog** - Azul, vermelho e branco com gradientes modernos
-- 🏷️ **Marca d'Água Estilosa** - Background com logo FitLog sutil e animado
-- 🎯 **Centralização Perfeita** - Todos os elementos perfeitamente alinhados
-- ♿ **Acessibilidade Total** - ARIA, contraste, navegação por teclado
-- 📝 **Tipografia Premium** - Inter font com hierarquia otimizada e legibilidade perfeita
-- 🎨 **Design Limpo** - Cabeçalho minimalista apenas com logo
-- 🌙 **Dark Mode Toggle** - Alternância entre tema claro e escuro
-- 🎨 **Glassmorphism Design** - Efeitos de vidro e transparência
-- 📊 **Scroll Progress Indicator** - Barra de progresso de rolagem
-- ✨ **Particle Effects** - Efeitos de partículas animadas
-- 🎯 **Micro-interactions** - Interações sutis e responsivas
-- 💫 **Smooth Animations** - Animações fluidas e modernas
-- 🎪 **Interactive Modals** - Modais com efeitos avançados
-- 🔘 **Call-to-Action Buttons** - Botões "Saiba Mais" com animações nos cards
-- 🌍 **Multi-Language Support** - Suporte a Português, Inglês e Espanhol
-- ♿ **WCAG AA Compliance** - Contrastes otimizados para acessibilidade total
-- 🔤 **Modern Typography** - Sistema de fontes premium com Google Fonts
-- 🌐 **Complete Translation System** - Todas as traduções funcionais
-- 🎨 **Modern Layout Design** - Layout completamente modernizado
-- 👁️ **Enhanced Contrast** - Contraste otimizado para máxima legibilidade
-- 🌞 **Light Mode Only** - Design otimizado para modo claro
-- 📱 **Fully Responsive** - Otimizado para todos os dispositivos
-- 🚀 **Performance Optimized** - Carregamento ultra-rápido
-- 🔍 **SEO Friendly** - Estrutura semântica otimizada
+O **FitLog Website** é uma plataforma moderna e acessível para apresentar os serviços de logística digital da FitLog. Desenvolvido com foco em **performance**, **acessibilidade** e **segurança**, o site oferece uma experiência excepcional para todos os usuários.
 
-## 🎨 Paleta de Cores FitLog - WCAG AA Compliant
+### 🎯 Características Principais
 
-- **Azul Primário**: #1B365D (4.5:1 contrast ratio)
-- **Vermelho Primário**: #E31E24 (4.5:1 contrast ratio)
-- **Branco**: #FFFFFF
-- **Azul Claro**: #4A90E2
-- **Azul Escuro**: #0F2A4A
-- **Vermelho Claro**: #FF4757
-- **Vermelho Escuro**: #C0392B
-- **Texto Primário**: #202124 (4.5:1 contrast)
-- **Texto Secundário**: #5F6368 (4.5:1 contrast)
-- **Texto Terciário**: #80868B (3:1 contrast)
-- **Gradiente Hero**: `linear-gradient(135deg, #1B365D 0%, #0F2A4A 50%, #E31E24 100%)`
-- **Gradiente Accent**: `linear-gradient(135deg, #4A90E2 0%, #E31E24 100%)`
-- **Gradiente Secundário**: `linear-gradient(135deg, #E31E24 0%, #FF4757 100%)`
+- ✅ **100% Acessível** - Conformidade WCAG 2.1 AA
+- ⚡ **Alta Performance** - Core Web Vitals otimizados
+- 🔒 **Segurança Avançada** - Headers de segurança e CSP
+- 📱 **Totalmente Responsivo** - Design adaptativo
+- 🌐 **Multilíngue** - Suporte a PT, EN, ES
+- 🎨 **Design System** - Componentes reutilizáveis
+- 🧪 **Testes Automatizados** - CI/CD completo
 
-## 🌍 Idiomas Suportados
+## 🛠️ Tecnologias Utilizadas
 
-- **🇧🇷 Português** (Padrão)
-- **🇺🇸 English**
-- **🇪🇸 Español**
+### Frontend
+- **HTML5** - Estrutura semântica
+- **CSS3** - Design system e animações
+- **JavaScript ES6+** - Funcionalidades interativas
+- **Bootstrap 5.3.2** - Framework CSS
+- **AOS** - Animações on scroll
+- **Font Awesome 6.5.0** - Ícones
 
-### Funcionalidades de Internacionalização:
-- **Seletor de idioma** no menu de navegação
-- **Persistência** da escolha no localStorage
-- **Tradução dinâmica** de todos os elementos
-- **Interface responsiva** em todos os idiomas
-- **Sistema completo** com 50+ elementos traduzidos
+### Ferramentas de Desenvolvimento
+- **Playwright** - Testes automatizados
+- **ESLint** - Análise de código JavaScript
+- **Stylelint** - Análise de CSS
+- **HTMLHint** - Análise de HTML
+- **Lighthouse CI** - Auditoria de performance
+- **axe-core** - Testes de acessibilidade
 
-## 🔤 Sistema de Fontes Moderno
+### CI/CD
+- **GitHub Actions** - Pipeline automatizado
+- **Netlify** - Deploy e hospedagem
+- **Snyk** - Análise de vulnerabilidades
+- **Semgrep** - Análise de segurança
 
-### Fontes Premium:
-- **Space Grotesk** - Títulos principais e hero
-- **Plus Jakarta Sans** - Subtítulos e cards
-- **Inter** - Texto corpo e navegação
-- **Outfit** - Elementos especiais
+## 🚀 Instalação e Configuração
 
-### Otimizações:
-- **Preconnect** para carregamento rápido
-- **Font-feature-settings** para melhor renderização
-- **Text-rendering** otimizado
-- **Fallbacks** para sistema operacional
+### Pré-requisitos
+- Node.js 18+ 
+- Python 3.9+
+- Git
 
-## 🎨 Layout Modernizado
+### 1. Clone o repositório
+```bash
+git clone https://github.com/fitlog/website.git
+cd fitlog-website
+```
 
-### Melhorias de Design:
-- **Navegação glassmorphism** com blur e transparência
-- **Gradientes sutis** nas seções para profundidade
-- **Cards modernos** com sombras e bordas refinadas
-- **Espaçamentos otimizados** para melhor respiração visual
-- **Contraste aprimorado** em todos os elementos
+### 2. Instale as dependências
+```bash
+npm install
+```
 
-### Correções de Contraste:
-- **Textos do Hero** com sombras para legibilidade
-- **Cores sólidas** em vez de variáveis para garantir visibilidade
-- **Contraste WCAG AA** em todos os textos
-- **Modo claro** com cores otimizadas
-- **Hierarquia visual** clara e consistente
+### 3. Execute o servidor de desenvolvimento
+```bash
+npm run dev
+```
 
-### Melhorias de Centralização:
-- **Cards de serviços** com elementos perfeitamente centralizados
-- **Botões "Saiba Mais"** com alinhamento central e largura otimizada
-- **Ícones e textos** com centralização visual aprimorada
-- **Grid responsivo** com melhor distribuição dos elementos
-- **Espaçamentos equilibrados** para melhor respiração visual
+O site estará disponível em `http://localhost:8000`
 
-### Sistema Tipográfico Moderno:
-- **Fontes principais**: Inter e Outfit para máxima legibilidade
-- **Hierarquia tipográfica** refinada com pesos otimizados
-- **Letter-spacing** ajustado para melhor leitura (-0.01em a -0.03em)
-- **Font-feature-settings** ativados para ligaduras e kerning
-- **Text-rendering** otimizado para suavidade visual
-- **Fallbacks** para sistema operacional em caso de falha de carregamento
+## 📁 Estrutura do Projeto
 
-## 🔧 Correções Técnicas Implementadas
+```
+fitlog-website/
+├── 📁 .github/
+│   └── 📁 workflows/
+│       └── ci-cd.yml                 # Pipeline CI/CD
+├── 📁 assets/
+│   ├── 📁 css/
+│   │   ├── main.css                  # Estilos principais
+│   │   └── design-system.css         # Sistema de design
+│   ├── 📁 js/
+│   │   ├── main.js                   # Script principal
+│   │   ├── i18n.js                   # Internacionalização
+│   │   ├── image-optimizer.js        # Otimização de imagens
+│   │   ├── accessibility-manager.js  # Gerenciador de acessibilidade
+│   │   └── performance-monitor.js    # Monitor de performance
+│   ├── 📁 security/
+│   │   └── csp-headers.js            # Headers de segurança
+│   └── 📁 images/                    # Imagens otimizadas
+├── 📁 tests/
+│   ├── accessibility.test.js         # Testes de acessibilidade
+│   ├── performance.test.js           # Testes de performance
+│   └── functionality.test.js         # Testes de funcionalidade
+├── 📁 scripts/
+│   └── generate-sitemap.js           # Gerador de sitemap
+├── index.html                        # Página principal
+├── package.json                      # Dependências e scripts
+└── README.md                         # Documentação
+```
 
-### Problemas Corrigidos:
-- ✅ **HTML**: Adicionados `data-i18n` para todos os textos traduzíveis
-- ✅ **HTML**: Corrigidas tags mal fechadas e estrutura
-- ✅ **CSS**: Removidas duplicações de variáveis e estilos
-- ✅ **JavaScript**: Movidas funções de modal para arquivo principal
-- ✅ **JavaScript**: Corrigida redeclaração de variáveis
-- ✅ **Acessibilidade**: Melhorada navegação por teclado
-- ✅ **Traduções**: Completadas todas as traduções em 3 idiomas
-- ✅ **Linting**: Eliminados todos os erros de código
-- ✅ **Dark Mode**: Removido para simplificar o design
+## 🧪 Testes
 
-## 📱 Seções do Site
+### Executar todos os testes
+```bash
+npm run test:all
+```
 
-1. **Hero Section** - Apresentação principal com efeitos de partículas
-2. **Serviços** - 9 serviços logísticos com modais interativos
-3. **Clientes** - Grid de clientes e eventos
-4. **Sobre** - Informações da empresa com cards modernos
-5. **CTA Section** - Call-to-action com efeitos visuais
-6. **Contato** - Formulário moderno e informações de contato
+### Testes específicos
+```bash
+# Testes de acessibilidade
+npm run test:accessibility
 
-## 🛠️ Tecnologias Modernas
+# Testes de performance
+npm run test:performance
 
-- **HTML5** - Estrutura semântica moderna
-- **CSS3** - Variáveis CSS, Grid, Flexbox, Glassmorphism
-- **JavaScript ES6+** - Funcionalidades avançadas e interativas
-- **Bootstrap 5** - Framework responsivo
-- **Font Awesome 6** - Ícones modernos
-- **Google Fonts** - Tipografia contemporânea
-- **AOS** - Animate On Scroll
-- **Custom Animations** - Animações personalizadas
+# Testes de funcionalidade
+npm run test:functionality
+```
 
-## 🚀 Funcionalidades Avançadas
+### Auditorias
+```bash
+# Lighthouse CI
+npm run lighthouse
 
-### 🌙 Dark Mode
-- Toggle flutuante no lado direito
-- Persistência da preferência no localStorage
-- Transições suaves entre temas
+# Pa11y (acessibilidade)
+npm run pa11y
 
-### ✨ Efeitos Visuais
-- Partículas animadas no hero
-- Efeitos de ripple nos botões
-- Magnetic effect nos cards
-- Shimmer effects nos elementos
+# Análise de vulnerabilidades
+npm run audit
+```
 
-### 📊 Interatividade
-- Scroll progress indicator
-- Smooth scrolling
-- Micro-interactions
-- Hover effects avançados
+## 🔧 Scripts Disponíveis
+
+| Script | Descrição |
+|--------|-----------|
+| `npm run dev` | Inicia servidor de desenvolvimento |
+| `npm run build` | Build de produção |
+| `npm run test` | Executa todos os testes |
+| `npm run lint` | Análise de código |
+| `npm run audit` | Verificação de vulnerabilidades |
+| `npm run lighthouse` | Auditoria de performance |
+| `npm run deploy:staging` | Deploy para staging |
+| `npm run deploy:production` | Deploy para produção |
+
+## 🎨 Design System
+
+O projeto utiliza um sistema de design consistente com:
+
+### Cores
+- **Primárias**: Tons de azul para elementos principais
+- **Secundárias**: Tons de vermelho para destaques
+- **Neutras**: Escala de cinzas para textos e fundos
+- **Semânticas**: Verde, amarelo, vermelho para estados
+
+### Tipografia
+- **Primária**: Inter (corpo do texto)
+- **Secundária**: Outfit (títulos)
+- **Monospace**: SF Mono (código)
+
+### Componentes
+- Botões com variantes (primary, secondary, outline, ghost)
+- Cards com hover effects
+- Formulários acessíveis
+- Badges e alertas
+- Loading spinners
+
+## ♿ Acessibilidade
+
+### Recursos Implementados
+- **Navegação por teclado** completa
+- **Screen reader** compatibility
+- **ARIA labels** dinâmicos
+- **Skip links** para navegação rápida
+- **Live regions** para anúncios
+- **Alto contraste** e **redução de movimento**
+- **Foco visível** aprimorado
+
+### Atalhos de Teclado
+- `Tab` - Navegação sequencial
+- `Shift + Tab` - Navegação reversa
+- `Esc` - Fechar modais
+- `Alt + M` - Menu principal
+- `Alt + S` - Pular para serviços
+- `Alt + C` - Pular para contato
+
+## ⚡ Performance
+
+### Métricas Monitoradas
+- **LCP** (Largest Contentful Paint) < 2.5s
+- **FID** (First Input Delay) < 100ms
+- **CLS** (Cumulative Layout Shift) < 0.1
+- **FCP** (First Contentful Paint) < 1.8s
+- **TTFB** (Time to First Byte) < 600ms
+- **TTI** (Time to Interactive) < 3.8s
+
+### Otimizações
+- **Preload** de recursos críticos
+- **Lazy loading** de imagens
+- **Minificação** de CSS/JS/HTML
+- **Compressão** de imagens (WebP/AVIF)
+- **CDN** para recursos externos
+
+## 🔒 Segurança
+
+### Headers Implementados
+- **Content Security Policy** (CSP)
+- **X-Content-Type-Options**
+- **X-Frame-Options**
+- **X-XSS-Protection**
+- **Referrer-Policy**
+- **Permissions-Policy**
+
+### Análises Automáticas
+- **Snyk** - Vulnerabilidades de dependências
+- **Semgrep** - Análise de código
+- **npm audit** - Auditoria de pacotes
+- **Lighthouse CI** - Auditoria de segurança
+
+## 🌐 Internacionalização
+
+### Idiomas Suportados
+- 🇧🇷 **Português** (padrão)
+- 🇺🇸 **English**
+- 🇪🇸 **Español**
+
+### Recursos
+- Tradução dinâmica de conteúdo
+- Formatação de datas e números
+- Direção de texto (LTR/RTL)
+- Fallback para idioma padrão
 
 ## 🚀 Deploy
 
-### Vercel (Recomendado)
-```bash
-# Instalar Vercel CLI
-npm i -g vercel
+### Ambientes
+- **Staging**: `develop` branch → Netlify Staging
+- **Production**: `main` branch → Netlify Production
 
-# Deploy
-vercel --prod
-```
+### Pipeline CI/CD
+1. **Análise de código** (ESLint, Stylelint, HTMLHint)
+2. **Testes automatizados** (Playwright)
+3. **Testes de segurança** (Snyk, Semgrep)
+4. **Auditoria de performance** (Lighthouse CI)
+5. **Build e otimização**
+6. **Deploy automático**
+7. **Monitoramento pós-deploy**
 
-### Netlify
-1. Arraste a pasta do projeto para o Netlify
-2. Deploy automático
+## 📊 Monitoramento
 
-### GitHub Pages
-1. Faça push para o repositório
-2. Ative GitHub Pages nas configurações
+### Métricas em Tempo Real
+- Performance do usuário
+- Erros JavaScript
+- Recursos lentos
+- Interações do usuário
+- Core Web Vitals
 
-## 📦 Scripts Disponíveis
+### Integração com Analytics
+- Google Analytics 4
+- Endpoint customizado
+- Relatórios automatizados
 
-```bash
-# Desenvolvimento local
-npm run dev
+## 🤝 Contribuição
 
-# Build do projeto
-npm run build
+### Como Contribuir
+1. Fork o projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
 
-# Deploy
-npm run deploy
-```
+### Padrões de Código
+- ESLint para JavaScript
+- Stylelint para CSS
+- HTMLHint para HTML
+- Testes obrigatórios para novas features
+- Documentação atualizada
 
-## 🎯 Performance
+## 📝 Licença
 
-- ⚡ **Lighthouse Score**: 95+
-- 📱 **Mobile First**: Design responsivo
-- 🚀 **Fast Loading**: Otimizado para velocidade
-- 🔍 **SEO Optimized**: Meta tags e structured data
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
-## 📄 Licença
+## 📞 Contato
 
-MIT License - Desenvolvido para a FitLog
+**FitLog** - Logística 100% Digital
+- 📧 Email: sac@fitlog.com.br
+- 📱 Telefone: +55 11 4962-6348
+- 🌐 Website: https://fitlog.com.br
+- 📍 Endereço: Condomínio CL Aeroporto, Rua Jamil João Zarif, 684 - Galpão 6, Aeroporto, Guarulhos - SP, 07143-000
+
+## 🙏 Agradecimentos
+
+- Equipe de desenvolvimento FitLog
+- Comunidade open source
+- Contribuidores e testadores
+- Parceiros e clientes
 
 ---
 
-**Desenvolvido com ❤️ para a FitLog - Logística 100% Digital**
+**Desenvolvido com ❤️ pela equipe FitLog**
