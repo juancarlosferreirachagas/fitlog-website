@@ -1289,7 +1289,60 @@ function scrollToSolutions() {
     }
 }
 
+// ========================================
+// MOBILE LANGUAGE BUTTON CONTROL
+// ========================================
+
+function initMobileLanguageButton() {
+    const mobileLanguageBtn = document.getElementById('mobileLanguageBtn');
+    const mobileLanguageDropdown = document.getElementById('mobileLanguageDropdown');
+    const languageItems = document.querySelectorAll('.mobile-language-item');
+    
+    if (!mobileLanguageBtn || !mobileLanguageDropdown) return;
+    
+    // Toggle dropdown
+    mobileLanguageBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mobileLanguageDropdown.classList.toggle('active');
+    });
+    
+    // Handle language selection
+    languageItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const lang = item.dataset.lang;
+            
+            // Update active state
+            languageItems.forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+            
+            // Change language
+            if (typeof changeLanguage === 'function') {
+                changeLanguage(lang);
+            }
+            
+            // Close dropdown
+            mobileLanguageDropdown.classList.remove('active');
+        });
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!mobileLanguageBtn.contains(e.target) && !mobileLanguageDropdown.contains(e.target)) {
+            mobileLanguageDropdown.classList.remove('active');
+        }
+    });
+    
+    // Close dropdown on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            mobileLanguageDropdown.classList.remove('active');
+        }
+    });
+}
+
 // Initialize mobile gestures when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     initMobileGestures();
+    initMobileLanguageButton();
 });

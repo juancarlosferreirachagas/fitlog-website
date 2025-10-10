@@ -1,0 +1,374 @@
+/**
+ * FitLog Transport Icons - Sistema de Ícones Animados
+ * Ícones inovadores para transportadora com animações
+ * 
+ * @version 1.0.0
+ * @author FitLog Design Team
+ */
+
+/* ========================================
+   TRANSPORT ICONS SYSTEM
+   ======================================== */
+
+:root {
+    /* Transport Colors */
+    --transport-blue: #1B365D;
+    --transport-red: #E31E24;
+    --transport-orange: #FF6B35;
+    --transport-green: #25D366;
+    --transport-gray: #6C757D;
+    
+    /* Animation Variables */
+    --truck-speed: 3s;
+    --wheel-speed: 1s;
+    --bounce-speed: 2s;
+    --pulse-speed: 1.5s;
+}
+
+/* ========================================
+   ANIMATED TRUCK LOGO
+   ======================================== */
+
+.truck-logo {
+    position: relative;
+    display: inline-block;
+    width: 120px;
+    height: 60px;
+    margin: 0 auto;
+}
+
+.truck-logo svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 4px 8px rgba(27, 54, 93, 0.3));
+}
+
+/* Truck Body Animation */
+.truck-body {
+    animation: truckMove 4s ease-in-out infinite;
+    transform-origin: center;
+}
+
+/* Wheels Animation */
+.truck-wheel {
+    animation: wheelSpin 1s linear infinite;
+    transform-origin: center;
+}
+
+/* Truck Movement */
+@keyframes truckMove {
+    0%, 100% { 
+        transform: translateX(0px) rotate(0deg);
+    }
+    25% { 
+        transform: translateX(5px) rotate(1deg);
+    }
+    50% { 
+        transform: translateX(10px) rotate(0deg);
+    }
+    75% { 
+        transform: translateX(5px) rotate(-1deg);
+    }
+}
+
+/* Wheel Spin */
+@keyframes wheelSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ========================================
+   TRANSPORT SERVICE ICONS
+   ======================================== */
+
+.transport-icon {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--transport-blue) 0%, var(--transport-red) 100%);
+    border-radius: 50%;
+    box-shadow: 
+        0 8px 25px rgba(27, 54, 93, 0.2),
+        0 3px 10px rgba(227, 30, 36, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    overflow: hidden;
+}
+
+.transport-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.transport-icon:hover::before {
+    left: 100%;
+}
+
+.transport-icon:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 
+        0 15px 35px rgba(27, 54, 93, 0.3),
+        0 5px 15px rgba(227, 30, 36, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.transport-icon svg {
+    width: 40px;
+    height: 40px;
+    fill: white;
+    z-index: 1;
+    position: relative;
+}
+
+/* ========================================
+   SPECIFIC TRANSPORT ICONS
+   ======================================== */
+
+/* Truck Icon */
+.truck-icon {
+    animation: truckBounce 2s ease-in-out infinite;
+}
+
+@keyframes truckBounce {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-3px); }
+}
+
+/* Package Icon */
+.package-icon {
+    animation: packagePulse 1.5s ease-in-out infinite;
+}
+
+@keyframes packagePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Route Icon */
+.route-icon {
+    animation: routeDraw 3s ease-in-out infinite;
+}
+
+@keyframes routeDraw {
+    0% { stroke-dasharray: 0 100; }
+    50% { stroke-dasharray: 50 50; }
+    100% { stroke-dasharray: 100 0; }
+}
+
+/* Delivery Icon */
+.delivery-icon {
+    animation: deliveryShake 2s ease-in-out infinite;
+}
+
+@keyframes deliveryShake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(2deg); }
+    75% { transform: rotate(-2deg); }
+}
+
+/* Tracking Icon */
+.tracking-icon {
+    animation: trackingPulse 1s ease-in-out infinite;
+}
+
+@keyframes trackingPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+/* ========================================
+   MOBILE OPTIMIZATIONS
+   ======================================== */
+
+@media (max-width: 768px) {
+    .truck-logo {
+        width: 100px;
+        height: 50px;
+    }
+    
+    .transport-icon {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .transport-icon svg {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .truck-logo {
+        width: 80px;
+        height: 40px;
+    }
+    
+    .transport-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .transport-icon svg {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* ========================================
+   INTERACTIVE CONTOURS
+   ======================================== */
+
+.interactive-contour {
+    position: relative;
+    display: inline-block;
+}
+
+.interactive-contour::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 2px solid var(--transport-red);
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+    animation: contourPulse 2s ease-in-out infinite;
+}
+
+.interactive-contour:hover::after {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+@keyframes contourPulse {
+    0%, 100% { 
+        opacity: 0.3;
+        transform: scale(0.9);
+    }
+    50% { 
+        opacity: 0.6;
+        transform: scale(1.05);
+    }
+}
+
+/* ========================================
+   LOADING ANIMATIONS
+   ======================================== */
+
+.loading-truck {
+    animation: loadingMove 2s ease-in-out infinite;
+}
+
+@keyframes loadingMove {
+    0% { transform: translateX(-20px); opacity: 0; }
+    50% { transform: translateX(0px); opacity: 1; }
+    100% { transform: translateX(20px); opacity: 0; }
+}
+
+/* ========================================
+   SUCCESS ANIMATIONS
+   ======================================== */
+
+.success-checkmark {
+    animation: checkmarkDraw 0.5s ease-in-out;
+}
+
+@keyframes checkmarkDraw {
+    0% { 
+        stroke-dasharray: 0 100;
+        opacity: 0;
+    }
+    100% { 
+        stroke-dasharray: 100 0;
+        opacity: 1;
+    }
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS
+   ======================================== */
+
+/* Moto G53 Specific (360px width) */
+@media (max-width: 360px) {
+    .truck-logo {
+        width: 70px;
+        height: 35px;
+    }
+    
+    .transport-icon {
+        width: 55px;
+        height: 55px;
+    }
+    
+    .transport-icon svg {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* iPhone SE (375px width) */
+@media (min-width: 361px) and (max-width: 375px) {
+    .truck-logo {
+        width: 85px;
+        height: 42px;
+    }
+    
+    .transport-icon {
+        width: 65px;
+        height: 65px;
+    }
+    
+    .transport-icon svg {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* iPhone 12/13/14 (390px width) */
+@media (min-width: 376px) and (max-width: 390px) {
+    .truck-logo {
+        width: 90px;
+        height: 45px;
+    }
+    
+    .transport-icon {
+        width: 68px;
+        height: 68px;
+    }
+    
+    .transport-icon svg {
+        width: 34px;
+        height: 34px;
+    }
+}
+
+/* Samsung Galaxy S21 (384px width) */
+@media (min-width: 376px) and (max-width: 384px) {
+    .truck-logo {
+        width: 88px;
+        height: 44px;
+    }
+    
+    .transport-icon {
+        width: 67px;
+        height: 67px;
+    }
+    
+    .transport-icon svg {
+        width: 33px;
+        height: 33px;
+    }
+}

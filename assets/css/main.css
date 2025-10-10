@@ -491,68 +491,119 @@ input, textarea, [contenteditable] {
     transform: translateX(4px);
 }
 
+/* ========================================
+   MOBILE LANGUAGE BUTTON - FIXED POSITION
+   ======================================== */
+
+.mobile-language-btn {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10002;
+    background: rgba(27, 54, 93, 0.95);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 4px 20px rgba(27, 54, 93, 0.3);
+}
+
+.mobile-language-btn:hover {
+    transform: scale(1.1);
+    background: rgba(227, 30, 36, 0.95);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 6px 25px rgba(227, 30, 36, 0.4);
+}
+
+.mobile-language-btn i {
+    color: white;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.mobile-language-btn:hover i {
+    transform: rotate(180deg);
+}
+
+.mobile-language-dropdown {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    border-radius: var(--radius-lg);
+    padding: var(--space-sm);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    z-index: 10001;
+    min-width: 120px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border: 1px solid rgba(27, 54, 93, 0.1);
+}
+
+.mobile-language-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.mobile-language-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    min-height: 44px;
+}
+
+.mobile-language-item:hover {
+    background: rgba(27, 54, 93, 0.1);
+    color: var(--primary-blue);
+    transform: translateX(5px);
+}
+
+.mobile-language-item.active {
+    background: rgba(227, 30, 36, 0.1);
+    color: var(--primary-red);
+    font-weight: 600;
+}
+
+.mobile-language-item i {
+    font-size: 1rem;
+    width: 20px;
+    text-align: center;
+}
+
 /* Mobile Language Dropdown Fix */
 @media (max-width: 768px) {
-    /* Show only language dropdown on mobile */
+    /* Hide desktop navigation completely on mobile */
     .navbar-nav {
-        display: flex !important;
-        position: fixed;
-        top: 70px;
-        right: 15px;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(15px);
-        border-radius: var(--radius-md);
-        padding: var(--space-xs);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-        z-index: 10001;
-        min-width: 100px;
-    }
-    
-    /* Hide all nav items except language dropdown */
-    .navbar-nav .nav-item:not(.dropdown) {
         display: none !important;
     }
     
-    .navbar-nav .nav-item.dropdown {
-        margin: 0;
+    /* Show mobile language button */
+    .mobile-language-btn {
+        display: flex !important;
     }
     
-    .navbar-nav .nav-link {
-        padding: var(--space-sm) var(--space-md) !important;
-        font-size: 0.9rem;
-        min-height: 44px;
-        display: flex;
-        align-items: center;
+    /* Adjust navbar for mobile language button */
+    .navbar .container {
         justify-content: center;
-        border: none;
-        background: transparent;
-    }
-    
-    .navbar-nav .dropdown-menu {
-        position: absolute !important;
-        top: 100% !important;
-        left: 0 !important;
-        right: 0 !important;
-        transform: none !important;
-        width: 100% !important;
-        z-index: 10002 !important;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-        margin-top: var(--space-xs);
-        border: 1px solid rgba(27, 54, 93, 0.1);
-    }
-    
-    .navbar-nav .dropdown-item {
-        padding: var(--space-sm) var(--space-md);
-        font-size: 0.9rem;
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-    }
-    
-    .navbar-nav .dropdown-item:hover {
-        background: var(--gray-100);
-        color: var(--primary-blue);
+        padding-right: 80px; /* Space for language button */
     }
 }
 
@@ -2136,6 +2187,180 @@ input, textarea, [contenteditable] {
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 var(--space-xl);
+    }
+}
+
+/* ========================================
+   MOTO G53 & MOBILE OPTIMIZATIONS
+   ======================================== */
+
+/* Moto G53 Specific (360px width) */
+@media (max-width: 360px) {
+    body {
+        padding-top: 50px;
+        font-size: 14px;
+    }
+    
+    .navbar {
+        padding: var(--space-xs) 0;
+        height: 50px;
+    }
+    
+    .logo-image {
+        height: 40px;
+    }
+    
+    .logo-container span {
+        font-size: 1.1rem;
+    }
+    
+    .mobile-language-btn {
+        width: 45px;
+        height: 45px;
+        top: 15px;
+        right: 15px;
+    }
+    
+    .mobile-language-btn i {
+        font-size: 1rem;
+    }
+    
+    .mobile-language-dropdown {
+        top: 70px;
+        right: 15px;
+        min-width: 100px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        line-height: 1.1;
+    }
+    
+    .title-line-1 {
+        font-size: 1.6rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .solution-card {
+        min-height: 350px;
+        padding: var(--space-lg) var(--space-md);
+    }
+    
+    .solution-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .solution-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .solution-card h4 {
+        font-size: 1.2rem;
+    }
+    
+    .solution-description {
+        font-size: 0.9rem;
+    }
+    
+    .solution-btn {
+        padding: var(--space-sm) var(--space-lg);
+        font-size: 0.9rem;
+        min-height: 44px;
+    }
+}
+
+/* iPhone SE (375px width) */
+@media (min-width: 361px) and (max-width: 375px) {
+    body {
+        padding-top: 55px;
+        font-size: 15px;
+    }
+    
+    .navbar {
+        height: 55px;
+    }
+    
+    .logo-image {
+        height: 45px;
+    }
+    
+    .mobile-language-btn {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .title-line-1 {
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+/* Samsung Galaxy S21 (384px width) */
+@media (min-width: 376px) and (max-width: 384px) {
+    body {
+        padding-top: 60px;
+    }
+    
+    .navbar {
+        height: 60px;
+    }
+    
+    .logo-image {
+        height: 50px;
+    }
+    
+    .hero-title {
+        font-size: 2.4rem;
+    }
+    
+    .title-line-1 {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+}
+
+/* iPhone 12/13/14 (390px width) */
+@media (min-width: 385px) and (max-width: 390px) {
+    body {
+        padding-top: 65px;
+    }
+    
+    .navbar {
+        height: 65px;
+    }
+    
+    .logo-image {
+        height: 55px;
+    }
+    
+    .hero-title {
+        font-size: 2.6rem;
+    }
+    
+    .title-line-1 {
+        font-size: 2.2rem;
+    }
+    
+    .section-title {
+        font-size: 2.4rem;
     }
 }
 
