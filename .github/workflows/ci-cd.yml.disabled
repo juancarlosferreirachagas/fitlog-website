@@ -1,19 +1,20 @@
-name: 🚀 CI/CD Pipeline - FitLog Website
+# DISABLED - Using deploy.yml for GitHub Pages
+# name: 🚀 CI/CD Pipeline - FitLog Website
 
-on:
-  push:
-    branches: [ main, develop ]
-  pull_request:
-    branches: [ main ]
-  schedule:
-    # Executa testes de segurança diariamente às 2h
-    - cron: '0 2 * * *'
+# on:
+#   push:
+#     branches: [ main, develop ]
+#   pull_request:
+#     branches: [ main ]
+#   schedule:
+#     # Executa testes de segurança diariamente às 2h
+#     - cron: '0 2 * * *'
 
-env:
-  NODE_VERSION: '18'
-  PYTHON_VERSION: '3.9'
+# env:
+#   NODE_VERSION: '18'
+#   PYTHON_VERSION: '3.9'
 
-jobs:
+# jobs:
   # ========================================
   # ANÁLISE DE CÓDIGO E QUALIDADE
   # ========================================
