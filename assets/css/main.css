@@ -2279,20 +2279,20 @@ input, textarea, [contenteditable] {
     }
     
     .mobile-language-btn {
-        width: 38px;
-        height: 38px;
-        top: 12px;
-        right: 12px;
+        width: 32px;
+        height: 32px;
+        top: 8px;
+        right: 8px;
     }
     
     .mobile-language-btn i {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
     
     .mobile-language-dropdown {
-        top: 60px;
-        right: 12px;
-        min-width: 120px;
+        top: 48px;
+        right: 8px;
+        min-width: 100px;
     }
     
     .hero-title {
@@ -2435,23 +2435,23 @@ input, textarea, [contenteditable] {
 @media (max-width: 768px) {
     /* Mobile Navigation - Live Navigation */
     body {
-        padding-top: 50px; /* Reduced padding for mobile */
+        padding-top: 45px; /* Ultra compact padding */
     }
     
     .navbar {
-        padding: 0.3rem 0;
+        padding: 0.2rem 0;
         background: rgba(255, 255, 255, 0.95) !important;
         backdrop-filter: blur(15px);
-        height: 50px;
+        height: 45px;
     }
     
     .navbar .container {
-        padding: 0 0.8rem;
+        padding: 0 0.6rem;
         justify-content: center; /* Center logo */
     }
     
     .logo-image {
-        height: 45px;
+        height: 40px;
     }
     
     /* Hide desktop navigation on mobile */
@@ -2500,15 +2500,15 @@ input, textarea, [contenteditable] {
     
     .solution-card {
         max-width: 100%;
-        min-height: 280px;
-        padding: 1.2rem 1rem;
+        min-height: 260px;
+        padding: 1rem 0.8rem;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
         text-align: center;
-        gap: 0.8rem;
-        border-radius: 12px;
+        gap: 0.6rem;
+        border-radius: 10px;
     }
     
     .solution-description {
@@ -2524,35 +2524,35 @@ input, textarea, [contenteditable] {
     
     .solution-card h4 {
         max-width: 100%;
-        font-size: 1.1rem;
+        font-size: 1rem;
         text-align: center;
-        margin: 0.5rem 0;
-        line-height: 1.3;
+        margin: 0.3rem 0;
+        line-height: 1.2;
         font-weight: 600;
     }
     
     .solution-icon {
-        width: 50px;
-        height: 50px;
-        margin: 0 auto 0.6rem;
+        width: 45px;
+        height: 45px;
+        margin: 0 auto 0.4rem;
     }
     
     .solution-icon i {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
     
     .solution-btn {
         width: 100%;
         max-width: 100%;
-        padding: 0.8rem 1rem;
-        font-size: 0.85rem;
-        min-height: 40px;
+        padding: 0.6rem 0.8rem;
+        font-size: 0.8rem;
+        min-height: 36px;
         display: flex;
         align-items: center;
         justify-content: center;
         text-align: center;
         white-space: nowrap;
-        border-radius: 8px;
+        border-radius: 6px;
         font-weight: 500;
         overflow: visible;
     }
@@ -2602,36 +2602,36 @@ input, textarea, [contenteditable] {
     }
     
     .solutions-grid {
-        margin-top: 1.5rem;
+        margin-top: 1rem;
         padding: 0;
-        gap: 1.2rem;
+        gap: 1rem;
         grid-template-columns: 1fr;
     }
     
     /* Better section spacing */
     .solutions-section {
-        padding: 2rem 0;
+        padding: 1.5rem 0;
     }
     
     .services-hero-content {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
     }
     
     .services-cards-title {
-        margin-bottom: 0.6rem;
-        font-size: 1.4rem;
-        line-height: 1.2;
+        margin-bottom: 0.4rem;
+        font-size: 1.2rem;
+        line-height: 1.1;
     }
     
     .services-cards-subtitle {
-        margin-bottom: 1.2rem;
-        font-size: 0.95rem;
-        line-height: 1.4;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        line-height: 1.3;
     }
     
     .services-cards-title-btn {
-        padding: 0.8rem 1rem;
-        border-radius: 8px;
+        padding: 0.6rem 0.8rem;
+        border-radius: 6px;
         background: rgba(27, 54, 93, 0.05);
         border: 1px solid rgba(27, 54, 93, 0.1);
         transition: all 0.3s ease;
