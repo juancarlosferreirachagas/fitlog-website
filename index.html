@@ -33,6 +33,13 @@
     
     <link rel="icon" type="image/x-icon" href="assets/images/fitlog-logo.jpg">
     <link rel="apple-touch-icon" href="assets/images/fitlog-logo.jpg">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1B365D">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="FitLog">
+    <meta name="msapplication-TileColor" content="#1B365D">
+    <meta name="msapplication-config" content="browserconfig.xml">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -866,6 +873,30 @@
             
             <div class="row mt-5">
                 <div class="col-12">
+                    <!-- Navigation Buttons -->
+                    <div class="navigation-buttons text-center mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <h4 class="mb-3">Como chegar até nós</h4>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+                            <a href="https://waze.com/ul?ll=-23.4536,-46.5331&navigate=yes" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               class="btn btn-waze"
+                               aria-label="Abrir no Waze - Navegação por GPS">
+                                <i class="fab fa-waze"></i>
+                                <span>Waze</span>
+                            </a>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=-23.4536,-46.5331" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               class="btn btn-google-maps"
+                               aria-label="Abrir no Google Maps - Navegação por GPS">
+                                <i class="fas fa-map-marked-alt"></i>
+                                <span>Google Maps</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Map Container -->
                     <div class="map-container" data-aos="fade-up" data-aos-delay="200">
                         <div class="map-wrapper">
                             <iframe 
@@ -925,5 +956,64 @@
     <script src="assets/js/main.js"></script>
     
     <!-- Service modal functions are now handled in main.js -->
+    
+    <!-- Service Worker Registration -->
+    <script>
+        // Registrar Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('✅ Service Worker registrado com sucesso:', registration.scope);
+                        
+                        // Verificar atualizações
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    // Nova versão disponível
+                                    if (confirm('Nova versão disponível! Deseja atualizar?')) {
+                                        newWorker.postMessage({ type: 'SKIP_WAITING' });
+                                        window.location.reload();
+                                    }
+                                }
+                            });
+                        });
+                    })
+                    .catch(error => {
+                        console.error('❌ Erro ao registrar Service Worker:', error);
+                    });
+            });
+        }
+        
+        // PWA Install Prompt
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            // Mostrar botão de instalação
+            const installButton = document.createElement('button');
+            installButton.textContent = '📱 Instalar App';
+            installButton.className = 'btn btn-outline-primary position-fixed';
+            installButton.style.cssText = 'bottom: 20px; right: 20px; z-index: 1000;';
+            installButton.onclick = () => {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('✅ PWA instalado pelo usuário');
+                    }
+                    deferredPrompt = null;
+                    installButton.remove();
+                });
+            };
+            document.body.appendChild(installButton);
+        });
+        
+        // Detectar se app foi instalado
+        window.addEventListener('appinstalled', () => {
+            console.log('🎉 PWA instalado com sucesso!');
+        });
+    </script>
 </body>
 </html>
