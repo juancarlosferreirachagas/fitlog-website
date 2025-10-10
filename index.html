@@ -33,13 +33,33 @@
     
     <link rel="icon" type="image/x-icon" href="assets/images/fitlog-logo.jpg">
     <link rel="apple-touch-icon" href="assets/images/fitlog-logo.jpg">
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#1B365D">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="FitLog">
     <meta name="msapplication-TileColor" content="#1B365D">
     <meta name="msapplication-config" content="browserconfig.xml">
+    
+    <!-- PWA Meta Tags Adicionais -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="FitLog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="./assets/images/fitlog-logo.jpg">
+    <link rel="apple-touch-icon" sizes="152x152" href="./assets/images/fitlog-logo.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/fitlog-logo.jpg">
+    <link rel="apple-touch-icon" sizes="167x167" href="./assets/images/fitlog-logo.jpg">
+    
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-TileImage" content="./assets/images/fitlog-logo.jpg">
+    <meta name="msapplication-square70x70logo" content="./assets/images/fitlog-logo.jpg">
+    <meta name="msapplication-square150x150logo" content="./assets/images/fitlog-logo.jpg">
+    <meta name="msapplication-wide310x150logo" content="./assets/images/fitlog-logo.jpg">
+    <meta name="msapplication-square310x310logo" content="./assets/images/fitlog-logo.jpg">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,7 +78,7 @@
     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=1.4.2">
+    <link rel="stylesheet" href="assets/css/main.css?v=1.4.3">
     <link rel="stylesheet" href="assets/css/design-system.css">
     
     <!-- Security Headers -->
@@ -964,7 +984,9 @@
         // Registrar Service Worker
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
+                navigator.serviceWorker.register('./sw.js', {
+                    scope: './'
+                })
                     .then(registration => {
                         console.log('✅ Service Worker registrado com sucesso:', registration.scope);
                         
@@ -974,13 +996,16 @@
                             newWorker.addEventListener('statechange', () => {
                                 if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
                                     // Nova versão disponível
-                                    if (confirm('Nova versão disponível! Deseja atualizar?')) {
+                                    if (confirm('🔄 Nova versão disponível! Deseja atualizar agora?')) {
                                         newWorker.postMessage({ type: 'SKIP_WAITING' });
                                         window.location.reload();
                                     }
                                 }
                             });
                         });
+                        
+                        // Verificar se há atualizações
+                        registration.update();
                     })
                     .catch(error => {
                         console.error('❌ Erro ao registrar Service Worker:', error);
@@ -996,26 +1021,76 @@
             
             // Mostrar botão de instalação
             const installButton = document.createElement('button');
-            installButton.textContent = '📱 Instalar App';
-            installButton.className = 'btn btn-outline-primary position-fixed';
-            installButton.style.cssText = 'bottom: 20px; right: 20px; z-index: 1000;';
+            installButton.innerHTML = '📱 Instalar App';
+            installButton.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #E31E24 0%, #FF4757 100%);
+                color: white;
+                border: none;
+                padding: 12px 20px;
+                border-radius: 25px;
+                font-weight: 600;
+                cursor: pointer;
+                z-index: 1000;
+                box-shadow: 0 4px 15px rgba(227, 30, 36, 0.3);
+                font-family: 'Inter', sans-serif;
+                font-size: 14px;
+                transition: all 0.3s ease;
+            `;
+            
+            installButton.addEventListener('mouseenter', () => {
+                installButton.style.transform = 'translateY(-2px)';
+                installButton.style.boxShadow = '0 6px 20px rgba(227, 30, 36, 0.4)';
+            });
+            
+            installButton.addEventListener('mouseleave', () => {
+                installButton.style.transform = 'translateY(0)';
+                installButton.style.boxShadow = '0 4px 15px rgba(227, 30, 36, 0.3)';
+            });
+            
             installButton.onclick = () => {
                 deferredPrompt.prompt();
                 deferredPrompt.userChoice.then((choiceResult) => {
                     if (choiceResult.outcome === 'accepted') {
                         console.log('✅ PWA instalado pelo usuário');
+                        installButton.innerHTML = '✅ Instalado!';
+                        installButton.style.background = 'linear-gradient(135deg, #50be50 0%, #73cb73 100%)';
+                        setTimeout(() => installButton.remove(), 2000);
+                    } else {
+                        console.log('❌ PWA não foi instalado');
                     }
                     deferredPrompt = null;
-                    installButton.remove();
                 });
             };
+            
             document.body.appendChild(installButton);
+            
+            // Auto-remover após 15 segundos
+            setTimeout(() => {
+                if (installButton.parentNode) {
+                    installButton.remove();
+                }
+            }, 15000);
         });
         
         // Detectar se app foi instalado
         window.addEventListener('appinstalled', () => {
             console.log('🎉 PWA instalado com sucesso!');
+            // Remover botão de instalação se existir
+            const installButton = document.querySelector('button[style*="position: fixed"]');
+            if (installButton) {
+                installButton.remove();
+            }
         });
+        
+        // Detectar se está rodando como PWA
+        if (window.matchMedia('(display-mode: standalone)').matches || 
+            window.navigator.standalone === true) {
+            console.log('📱 App rodando como PWA');
+            document.body.classList.add('pwa-mode');
+        }
     </script>
 </body>
 </html>

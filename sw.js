@@ -10,26 +10,27 @@
  * - Fallback para offline
  * 
  * @author FitLog Development Team
- * @version 1.3.0
+ * @version 1.4.2
  * @since 2024-12-19
  */
 
-const CACHE_NAME = 'fitlog-v1.3.0';
-const STATIC_CACHE = 'fitlog-static-v1.3.0';
-const DYNAMIC_CACHE = 'fitlog-dynamic-v1.3.0';
+const CACHE_NAME = 'fitlog-v1.4.2';
+const STATIC_CACHE = 'fitlog-static-v1.4.2';
+const DYNAMIC_CACHE = 'fitlog-dynamic-v1.4.2';
 
 // Recursos críticos para cache offline
 const CRITICAL_RESOURCES = [
-    '/',
-    '/index.html',
-    '/assets/css/main.css',
-    '/assets/css/design-system.css',
-    '/assets/js/main.js',
-    '/assets/js/accessibility-manager.js',
-    '/assets/js/performance-monitor.js',
-    '/assets/images/fitlog-logo.jpg',
-    '/assets/images/IMAGEM NOVA.jpg',
-    '/assets/images/IMAGEM NOVA 2.webp',
+    './',
+    './index.html',
+    './manifest.json',
+    './assets/css/main.css?v=1.4.2',
+    './assets/css/design-system.css',
+    './assets/js/main.js',
+    './assets/js/accessibility-manager.js',
+    './assets/js/performance-monitor.js',
+    './assets/images/fitlog-logo.jpg',
+    './assets/images/IMAGEM NOVA.jpg',
+    './assets/images/IMAGEM NOVA 2.webp',
     'https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=Outfit:wght@200;300;400;500;600;700;800;900&display=swap',
     'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css'
