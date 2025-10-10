@@ -1037,6 +1037,15 @@
             });
         }
         
+        // Debug PWA
+        console.log('🔍 PWA Debug Info:', {
+            serviceWorker: 'serviceWorker' in navigator,
+            standalone: window.matchMedia('(display-mode: standalone)').matches,
+            userAgent: navigator.userAgent,
+            platform: navigator.platform,
+            manifest: document.querySelector('link[rel="manifest"]') ? 'Presente' : 'Ausente'
+        });
+        
         // PWA Install Prompt
         let deferredPrompt;
         window.addEventListener('beforeinstallprompt', (e) => {

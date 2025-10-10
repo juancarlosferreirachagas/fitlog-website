@@ -2,17 +2,23 @@
   "name": "FitLog - Logística 100% Digital",
   "short_name": "FitLog",
   "description": "Empresa líder em logística digital com soluções TMS e WMS. Transporte aéreo, rodoviário, armazenagem, eventos e AOG.",
-  "version": "1.4.2",
-  "start_url": "/",
+  "version": "1.4.9",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#1B365D",
   "theme_color": "#E31E24",
   "orientation": "portrait-primary",
-  "scope": "/",
+  "scope": "./",
   "lang": "pt-BR",
   "dir": "ltr",
   "categories": ["business", "logistics", "transportation"],
   "icons": [
+    {
+      "src": "assets/images/pwa-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
     {
       "src": "assets/images/fitlog-logo.jpg",
       "sizes": "72x72",
@@ -76,7 +82,7 @@
       "name": "Nossos Serviços",
       "short_name": "Serviços",
       "description": "Conheça nossos serviços logísticos",
-      "url": "/#services",
+      "url": "./#services",
       "icons": [
         {
           "src": "assets/images/fitlog-logo.jpg",
@@ -88,7 +94,7 @@
       "name": "Contato",
       "short_name": "Contato",
       "description": "Entre em contato conosco",
-      "url": "/#contact",
+      "url": "./#contact",
       "icons": [
         {
           "src": "assets/images/fitlog-logo.jpg",
@@ -109,7 +115,7 @@
   "capture_links": "new-client",
   "file_handlers": [
     {
-      "action": "/",
+      "action": "./",
       "accept": {
         "text/csv": [".csv"],
         "application/vnd.ms-excel": [".xls"],
@@ -120,15 +126,15 @@
   "protocol_handlers": [
     {
       "protocol": "mailto",
-      "url": "/contact?email=%s"
+      "url": "./contact?email=%s"
     },
     {
       "protocol": "tel",
-      "url": "/contact?phone=%s"
+      "url": "./contact?phone=%s"
     }
   ],
   "share_target": {
-    "action": "/share",
+    "action": "./share",
     "method": "POST",
     "enctype": "multipart/form-data",
     "params": {

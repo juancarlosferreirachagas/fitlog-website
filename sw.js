@@ -10,24 +10,26 @@
  * - Fallback para offline
  * 
  * @author FitLog Development Team
- * @version 1.4.2
+ * @version 1.4.9
  * @since 2024-12-19
  */
 
-const CACHE_NAME = 'fitlog-v1.4.2';
-const STATIC_CACHE = 'fitlog-static-v1.4.2';
-const DYNAMIC_CACHE = 'fitlog-dynamic-v1.4.2';
+const CACHE_NAME = 'fitlog-v1.4.9';
+const STATIC_CACHE = 'fitlog-static-v1.4.9';
+const DYNAMIC_CACHE = 'fitlog-dynamic-v1.4.9';
 
 // Recursos críticos para cache offline
 const CRITICAL_RESOURCES = [
     './',
     './index.html',
     './manifest.json',
-    './assets/css/main.css?v=1.4.2',
+    './assets/css/main.css?v=1.4.9',
     './assets/css/design-system.css',
+    './assets/css/transport-icons.css',
     './assets/js/main.js',
     './assets/js/accessibility-manager.js',
     './assets/js/performance-monitor.js',
+    './assets/js/transport-icons.js',
     './assets/images/fitlog-logo.jpg',
     './assets/images/IMAGEM NOVA.jpg',
     './assets/images/IMAGEM NOVA 2.webp',
