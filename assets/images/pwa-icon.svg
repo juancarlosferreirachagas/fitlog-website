@@ -1,28 +1,51 @@
 <svg width="192" height="192" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1B365D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0F2A4A;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="truckGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F8F9FA;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
   <!-- Background -->
-  <rect width="100" height="100" rx="20" fill="#1B365D"/>
+  <rect width="100" height="100" rx="20" fill="url(#bgGradient)"/>
   
-  <!-- Truck Body -->
-  <rect x="15" y="35" width="50" height="25" rx="3" fill="#FFFFFF"/>
+  <!-- Truck Body with shadow -->
+  <rect x="15" y="35" width="50" height="25" rx="4" fill="url(#truckGradient)" stroke="#E8EAED" stroke-width="1"/>
   
-  <!-- Truck Cab -->
-  <rect x="65" y="30" width="20" height="30" rx="3" fill="#FFFFFF"/>
+  <!-- Truck Cab with shadow -->
+  <rect x="65" y="30" width="20" height="30" rx="4" fill="url(#truckGradient)" stroke="#E8EAED" stroke-width="1"/>
   
-  <!-- Wheels -->
-  <circle cx="25" cy="70" r="8" fill="#333333"/>
-  <circle cx="70" cy="70" r="8" fill="#333333"/>
+  <!-- Wheels with better design -->
+  <circle cx="25" cy="70" r="8" fill="#2C3E50" stroke="#34495E" stroke-width="1"/>
+  <circle cx="70" cy="70" r="8" fill="#2C3E50" stroke="#34495E" stroke-width="1"/>
   
-  <!-- Wheel Centers -->
-  <circle cx="25" cy="70" r="4" fill="#666666"/>
-  <circle cx="70" cy="70" r="4" fill="#666666"/>
+  <!-- Wheel Centers with spokes -->
+  <circle cx="25" cy="70" r="5" fill="#34495E"/>
+  <circle cx="70" cy="70" r="5" fill="#34495E"/>
+  <circle cx="25" cy="70" r="2" fill="#5D6D7E"/>
+  <circle cx="70" cy="70" r="2" fill="#5D6D7E"/>
   
-  <!-- Headlights -->
-  <circle cx="85" cy="35" r="3" fill="#FFD700"/>
-  <circle cx="85" cy="45" r="3" fill="#FFD700"/>
+  <!-- Headlights with glow effect -->
+  <circle cx="85" cy="35" r="3" fill="#FFD700" opacity="0.9"/>
+  <circle cx="85" cy="45" r="3" fill="#FFD700" opacity="0.9"/>
+  <circle cx="85" cy="35" r="1.5" fill="#FFFFFF"/>
+  <circle cx="85" cy="45" r="1.5" fill="#FFFFFF"/>
   
-  <!-- Windshield -->
-  <rect x="67" y="32" width="16" height="12" rx="2" fill="#87CEEB" opacity="0.7"/>
+  <!-- Windshield with reflection -->
+  <rect x="67" y="32" width="16" height="12" rx="2" fill="#87CEEB" opacity="0.8"/>
+  <rect x="68" y="33" width="14" height="2" rx="1" fill="#FFFFFF" opacity="0.6"/>
   
-  <!-- FitLog Text -->
-  <text x="50" y="90" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="12" font-weight="bold">FitLog</text>
+  <!-- Truck details -->
+  <rect x="20" y="38" width="8" height="3" rx="1" fill="#E31E24" opacity="0.8"/>
+  <rect x="30" y="38" width="8" height="3" rx="1" fill="#E31E24" opacity="0.8"/>
+  
+  <!-- Speed lines for movement -->
+  <path d="M 5 50 L 8 50" stroke="#FFD700" stroke-width="2" opacity="0.7"/>
+  <path d="M 5 55 L 10 55" stroke="#FFD700" stroke-width="2" opacity="0.7"/>
+  <path d="M 5 60 L 7 60" stroke="#FFD700" stroke-width="2" opacity="0.7"/>
 </svg>
